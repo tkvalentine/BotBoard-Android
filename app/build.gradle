@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.evanschambers.botboard"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+
+    adbOptions {
+        timeOutInMs 60000 // set timeout to 1 minute
+    }
+}
+
+dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //THESE NEED TO BE UPDATED WHENEVER A NEW VERSION IS AVAILABLE
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:design:23.2.0'
+//    compile files('libs/google-play-services.jar')
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile ('com.firebase:firebase-client-android:2.5.2+')
+}

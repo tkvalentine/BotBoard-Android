@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "tims-project-1",
+    "project_number": "714175265402",
+    "name": "TimsTestProject"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714175265402:android:d4171f5e9be4eb99",
+        "client_id": "android:com.evanschambers.botboard",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.evanschambers.botboard",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714175265402-hmrbsvgfvt5g1hrne1kipka2b8isnhat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.evanschambers.botboard",
+            "certificate_hash": "6F5AC380D9813E46EE67145045BFC4AA2C0C9E31"
+          }
+        },
+        {
+          "client_id": "714175265402-74rjbgq8g1iq34tonkeph2olm63u1u2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
