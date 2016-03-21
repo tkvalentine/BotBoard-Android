@@ -14,6 +14,8 @@ import android.view.View;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+//import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
@@ -62,7 +64,14 @@ public class BotBoardLogin extends Activity  implements
         setContentView(R.layout.login_layout);
 
         /* Load the Google login button */
+// Configure sign-in to request the user's ID, email address, and basic
+// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail().requestProfile()
+                .build();
         SignInButton googleLoginButton = (SignInButton) findViewById(R.id.login_with_google2);
+//        googleLoginButton.setScopes(gso.getScopeArray());
+
         googleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +98,8 @@ public class BotBoardLogin extends Activity  implements
                 .addOnConnectionFailedListener(this)
                 .addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addScope(Plus.SCOPE_PLUS_PROFILE)
+         //       .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
 
@@ -154,6 +165,7 @@ public class BotBoardLogin extends Activity  implements
 
         if (requestCode == RC_GOOGLE_LOGIN) {
             Log.i(TAG, ">>>onActivityResult() : FROM GOOGLE LOGIN");
+
             /* This was a request by the Google API */
             if (resultCode != RESULT_OK) {
                 Log.i(TAG, ">>>onActivityResult() : result not OK");
@@ -223,12 +235,14 @@ public class BotBoardLogin extends Activity  implements
                     Log.e(TAG, ">>>getGoogleOAuthTokenAndLogin() : async task get Google AUTH token : Error authenticating with Google: " + authEx.getMessage(), authEx);
                     errorMessage = "Error authenticating with Google: " + authEx.getMessage();
                 }
+
                 return token;
             }
 
             @Override
             protected void onPostExecute(String token) {
                 Log.e(TAG, ">>>getGoogleOAuthTokenAndLogin() : async task get Google AUTH token call : CALLING BotBoardMain ACTIVITY");
+
                 mGoogleLoginClicked = false;
                 Intent intentWithToken = new Intent(BotBoardLogin.this, BotBoardMain.class);
                 intentWithToken.putExtra(AUTH_TOKEN_EXTRA, token);
