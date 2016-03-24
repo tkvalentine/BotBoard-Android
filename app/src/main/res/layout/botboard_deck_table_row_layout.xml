@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_material_dark"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    tools:showIn="@layout/botboard_main_layout"
+    android:paddingTop="10dp">
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/botboard_deck_table_item_layout"
+        android:layout_marginLeft="10dp" />
+
+    <include
+        layout="@layout/botboard_deck_table_item_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp" />
+
+    <include
+        layout="@layout/botboard_deck_table_item_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp" />
+</TableRow>
+
+            

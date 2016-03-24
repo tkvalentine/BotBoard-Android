@@ -1,15 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <!--
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
--->
 
     <style name="AppTheme" parent="android:Theme.Material.Light">
+    </style>
+
+    <!-- Material imagebutton with no padding/insets/margins. -->
+    <style name="AppTheme.Material.ImageButton" parent="android:Widget.Material.ImageButton">
+        <item name="android:colorControlHighlight">?android:colorPressedHighlight</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:inset">0dip</item>
     </style>
 
 </resources>

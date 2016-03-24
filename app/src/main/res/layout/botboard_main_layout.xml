@@ -1,6 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="0dp"
+    android:background="@color/button_material_dark">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:id="@+id/mainScreenMenuButtonContainer"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@color/button_material_light">
+
+        <ImageButton
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenBrowseDecksButton"
+            android:src="@drawable/ic_library_books_black"
+            android:scaleType="fitCenter"
+            android:layout_weight="0"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#ffffff"
+            android:adjustViewBounds="false"
+            android:elevation="5dp"
+            android:theme="@style/AppTheme.Material.ImageButton" />
+
+        <ImageButton
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenYourDecksButton"
+            android:src="@drawable/ic_language_black"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:layout_weight="0"
+            android:elevation="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#ffffff"
+            android:theme="@style/AppTheme.Material.ImageButton" />
+
+        <ImageButton
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenSettingsButton"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_settings_black"
+            android:scaleType="fitCenter"
+            android:layout_weight="0"
+            android:elevation="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#ffffff"
+            android:theme="@style/AppTheme.Material.ImageButton" />
+
+        <ImageButton
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenLogoutButton"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_exit_to_app_black"
+            android:layout_weight="0"
+            android:elevation="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#ffffff"
+            android:theme="@style/AppTheme.Material.ImageButton" />
+
+        <Space
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:layout_weight="1"
+            android:id="@+id/mainScreenMenuSpacer"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+        <ImageButton
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenUserButton"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_account_circle_black"
+            android:layout_weight="0"
+            android:elevation="5dp"
+            android:backgroundTint="#ffffff"
+            android:theme="@style/AppTheme.Material.ImageButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:background="@color/button_material_dark"
+        android:id="@+id/mainScreenContentContainer">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/button_material_light"
+            android:layout_weight="0"
+            android:layout_marginLeft="2dp"
+            android:id="@+id/mainScreenTopBarContainer">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenTitleTextView"
+                android:text="@string/main_screen_titlebar_title"
+                android:layout_weight="0"
+                android:gravity="left"
+                android:layout_marginLeft="5dp"
+                android:inputType="none"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:singleLine="false"
+                android:layout_gravity="center_vertical|left"
+                android:textSize="@dimen/abc_text_size_medium_material" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenCreateDeckContainer"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenCreateDeckTextEdit"
+                    android:text="@string/main_screen_create_decks_text"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:elegantTextHeight="false"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/abc_text_size_medium_material" />
+
+                <ImageButton
+                    android:layout_width="@dimen/abc_action_button_min_width_material"
+                    android:layout_height="@dimen/abc_action_button_min_height_material"
+                    android:id="@+id/mainScreenCreateDeckButton"
+                    android:src="@drawable/ic_library_add_black"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:elevation="5dp"
+                    android:backgroundTint="#ffffff"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:theme="@style/AppTheme.Material.ImageButton" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainScreenDeckHorizontalScrollContainer"
+            android:background="@color/background_material_dark"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenDeckVerticalScrollContainer"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:background="@color/background_material_dark">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/mainScreenDeckTable"
+                    android:background="@color/background_material_dark"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp">
+
+                    <include layout="@layout/botboard_deck_table_row_layout" />
+
+                    <include layout="@layout/botboard_deck_table_row_layout" />
+
+                    <include layout="@layout/botboard_deck_table_row_layout" />
+
+                </TableLayout>
+            </ScrollView>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/button_material_light"
+            android:id="@+id/mainScreenBottomBarContainer"
+            android:layout_weight="0"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp">
+
+            <ImageButton
+                android:layout_width="@dimen/abc_action_button_min_width_material"
+                android:layout_height="@dimen/abc_action_button_min_height_material"
+                android:id="@+id/mainScreenPlayInfoButton"
+                android:layout_marginRight="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_info_black"
+                android:layout_weight="0"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#ffffff"
+                android:theme="@style/AppTheme.Material.ImageButton" />
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/mainScreenPlaySeekBar"
+                android:layout_weight="1"
+                android:progress="0"
+                android:background="#bcbcbc"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/mainScreenPlayContainer"
+                android:layout_weight="0"
+                android:layout_gravity="center">
+
+                <ImageButton
+                    android:layout_width="@android:dimen/app_icon_size"
+                    android:layout_height="@android:dimen/app_icon_size"
+                    android:id="@+id/mainScreenPlayBeginningButton"
+                    android:layout_marginLeft="5dp"
+                    android:background="#bcbcbc"
+                    android:layout_weight="0"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_skip_previous_black"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageButton
+                    android:layout_width="@android:dimen/app_icon_size"
+                    android:layout_height="@android:dimen/app_icon_size"
+                    android:id="@+id/mainScreenPlayPauseButton"
+                    android:layout_weight="1"
+                    android:background="#bcbcbc"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_play_arrow_black"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageButton
+                    android:layout_width="@android:dimen/app_icon_size"
+                    android:layout_height="@android:dimen/app_icon_size"
+                    android:id="@+id/mainScreenPlayEndingButton"
+                    android:src="@drawable/ic_skip_next_black"
+                    android:scaleType="fitXY"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center_vertical"
+                    android:background="#bcbcbc" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

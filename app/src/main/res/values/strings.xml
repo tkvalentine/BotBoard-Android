@@ -4,9 +4,6 @@
     <string name="signed_out">Signed out</string>
 
 
-
-
-
     <string name="app_name">BotBoard</string>
     <string name="company_name">Evans and Chambers</string>
     <string name="app_name_without_company">Bot Board</string>
@@ -28,8 +25,11 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_bot_board_login2">BotBoardLogin2</string>
+
+    <!-- strings for main screen -->
+    <string name="main_screen_titlebar_title">Your Decks</string>
+    <string name="main_screen_create_decks_text">Create Deck</string>
+
 </resources>

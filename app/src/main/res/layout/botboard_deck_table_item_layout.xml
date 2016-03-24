@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/deskTableItemContainer"
+    android:padding="5dp"
+    android:theme="@style/AppTheme.Material.ImageButton"
+    android:clickable="false"
+    android:longClickable="true">
+
+    <ImageButton
+        android:layout_width="@dimen/desk_table_item_image_size"
+        android:layout_height="@dimen/desk_table_item_image_size"
+        android:id="@+id/diskTableItemImageView"
+        android:src="@drawable/ec_logo"
+        android:scaleType="fitCenter"
+        android:clickable="false"
+        android:elevation="5dp"
+        android:theme="@style/AppTheme.Material.ImageButton"
+        android:layout_margin="5dp"
+        android:longClickable="true" />
+
+    <TextView
+        android:layout_width="@dimen/desk_table_item_image_size"
+        android:layout_height="wrap_content"
+        android:text="Default Deck"
+        android:id="@+id/deskTableItemNameTextView"
+        android:textSize="@dimen/abc_text_size_small_material"
+        android:textColor="@color/abc_primary_text_material_light"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:theme="@style/AppTheme.Material.ImageButton"
+        android:longClickable="true" />
+</LinearLayout>
