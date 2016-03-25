@@ -4,7 +4,7 @@
     <string name="signed_out">Signed out</string>
 
 
-    <string name="app_name">BotBoard</string>
+    <string name="app_name">Up Board</string>
     <string name="company_name">Evans and Chambers</string>
     <string name="app_name_without_company">Bot Board</string>
 
@@ -21,6 +21,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_sign_out">Sign out</string>
+    <string name="action_login_quit">Quit</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
