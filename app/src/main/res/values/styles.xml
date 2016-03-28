@@ -1,15 +1,31 @@
 <resources>
 
     <!-- Base application theme. -->
+    <!-- inherit from the material theme -->
+    <style name="AppTheme.Material" parent="android:Theme.Material.Light.DarkActionBar">
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
 
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <!--
+                <item name="android:colorPrimaryDark">@color/primary_dark_material_dark</item>
+                <item name="android:colorPrimary">@color/primary_material_dark</item>
+                <item name="android:colorAccent">@color/colorAccent</item>
+        -->
     </style>
 
     <!-- Material imagebutton with no padding/insets/margins. -->
     <style name="AppTheme.Material.ImageButton" parent="android:Widget.Material.ImageButton">
-        <item name="android:colorControlHighlight">?android:colorPressedHighlight</item>
+        <!--
+                <item name="android:colorControlHighlight">?android:colorPressedHighlight</item>
+        -->
+        <!--
+                <item name="android:padding">5dip</item>
+                <item name="android:inset">0dip</item>
+                <item name="android:colorControlHighlight">@color/colorControlHighlight</item>
+        -->
         <item name="android:padding">5dip</item>
         <item name="android:inset">0dip</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
     </style>
 
 </resources>

@@ -4,10 +4,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/deskTableItemContainer"
-    android:padding="5dp"
-    android:theme="@style/AppTheme.Material.ImageButton"
-    android:clickable="false"
-    android:longClickable="true">
+    android:clickable="true"
+    android:longClickable="true"
+    style="@style/AppTheme.Material.ImageButton"
+    android:contextClickable="false"
+    android:elevation="5dp">
 
     <ImageButton
         android:layout_width="@dimen/desk_table_item_image_size"
@@ -17,9 +18,13 @@
         android:scaleType="fitCenter"
         android:clickable="false"
         android:elevation="5dp"
-        android:theme="@style/AppTheme.Material.ImageButton"
-        android:layout_margin="5dp"
-        android:longClickable="true" />
+        android:longClickable="false"
+        android:adjustViewBounds="true"
+        style="@style/AppTheme.Material.ImageButton"
+        android:backgroundTint="#ffffffff"
+        android:cropToPadding="false"
+        android:contextClickable="false"
+        android:duplicateParentState="true" />
 
     <TextView
         android:layout_width="@dimen/desk_table_item_image_size"
@@ -28,9 +33,12 @@
         android:id="@+id/deskTableItemNameTextView"
         android:textSize="@dimen/abc_text_size_small_material"
         android:textColor="@color/abc_primary_text_material_light"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:theme="@style/AppTheme.Material.ImageButton"
-        android:longClickable="true" />
+        android:longClickable="false"
+        android:layout_marginBottom="5dp"
+        android:clickable="false"
+        style="@style/AppTheme.Material.ImageButton"
+        android:contextClickable="false"
+        android:duplicateParentState="true" />
 </LinearLayout>

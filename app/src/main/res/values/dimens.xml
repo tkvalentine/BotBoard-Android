@@ -5,4 +5,5 @@
 
     <!-- Desk Table Item Image size. -->
     <dimen name="desk_table_item_image_size">128dp</dimen>
+    <dimen name="default_corner_radius">5dp</dimen>
 </resources>

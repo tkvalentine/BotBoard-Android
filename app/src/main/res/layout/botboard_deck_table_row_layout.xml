@@ -5,29 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background_material_dark"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
     tools:showIn="@layout/botboard_main_layout"
-    android:paddingTop="10dp">
+    android:paddingRight="5dp">
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/botboard_deck_table_item_layout"
-        android:layout_marginLeft="10dp" />
-
-    <include
-        layout="@layout/botboard_deck_table_item_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp" />
+        layout="@layout/botboard_deck_table_item_layout" />
 
     <include
         layout="@layout/botboard_deck_table_item_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="5dp" />
+
+    <include
+        layout="@layout/botboard_deck_table_item_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp" />
 </TableRow>
 
             
