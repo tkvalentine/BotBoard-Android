@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:id="@+id/mainScreenContainer">
-
-    <!--
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/toolbar_layout"
-            android:id="@+id/mainScreenToolbar" />
-    -->
 
     <LinearLayout
         android:orientation="vertical"
@@ -172,59 +165,30 @@
             </LinearLayout>
         </LinearLayout>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
+        <GridView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mainScreenDeckHorizontalScrollContainer"
-            android:layout_weight="1"
+            android:id="@+id/mainScreenDecksGridView"
             android:layout_marginLeft="2dp"
-            android:nestedScrollingEnabled="false"
-            android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbarSize="7dp"
+            android:layout_weight="1"
+            android:requiresFadingEdge="vertical|horizontal"
+            android:saveEnabled="true"
             android:scrollIndicators="left|right"
-            android:scrollbars="vertical|horizontal"
-            android:requiresFadingEdge="horizontal"
-            android:scrollbarFadeDuration="500"
-            android:scrollbarDefaultDelayBeforeFade="250"
+            android:scrollbarAlwaysDrawHorizontalTrack="false"
             android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:saveEnabled="true">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mainScreenDeckVerticalScrollContainer"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_weight="1"
-                android:nestedScrollingEnabled="true"
-                android:scrollbarSize="7dp"
-                android:scrollbarStyle="insideInset"
-                android:scrollIndicators="bottom|top"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:scrollbars="vertical"
-                android:requiresFadingEdge="vertical"
-                android:scrollbarFadeDuration="500"
-                android:scrollbarDefaultDelayBeforeFade="250">
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/mainScreenDeckTable"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="2dp"
-                    android:nestedScrollingEnabled="false">
-
-                    <include layout="@layout/botboard_deck_table_row_layout" />
-
-                    <include layout="@layout/botboard_deck_table_row_layout" />
-
-                    <include layout="@layout/botboard_deck_table_row_layout" />
-
-                </TableLayout>
-            </ScrollView>
-        </HorizontalScrollView>
+            android:scrollbarDefaultDelayBeforeFade="250"
+            android:scrollbarFadeDuration="500"
+            android:scrollbarSize="7dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:isScrollContainer="true"
+            tools:listitem="@layout/botboard_deck_table_item_layout"
+            android:choiceMode="singleChoice"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:columnWidth="@dimen/desk_table_item_image_size" />
 
         <LinearLayout
             android:orientation="horizontal"

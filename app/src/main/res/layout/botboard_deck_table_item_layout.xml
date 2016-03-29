@@ -6,9 +6,9 @@
     android:id="@+id/deskTableItemContainer"
     android:clickable="true"
     android:longClickable="true"
-    style="@style/AppTheme.Material.ImageButton"
     android:contextClickable="false"
-    android:elevation="5dp">
+    android:elevation="5dp"
+    style="@android:style/Widget.Material.ImageButton">
 
     <ImageButton
         android:layout_width="@dimen/desk_table_item_image_size"
@@ -24,10 +24,11 @@
         android:backgroundTint="#ffffffff"
         android:cropToPadding="false"
         android:contextClickable="false"
-        android:duplicateParentState="true" />
+        android:duplicateParentState="true"
+        android:layout_gravity="center" />
 
     <TextView
-        android:layout_width="@dimen/desk_table_item_image_size"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Default Deck"
         android:id="@+id/deskTableItemNameTextView"
