@@ -23,9 +23,7 @@
                 <item name="android:inset">0dip</item>
                 <item name="android:colorControlHighlight">@color/colorControlHighlight</item>
         -->
-        <item name="android:padding">5dip</item>
-        <item name="android:inset">0dip</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="android:background">@drawable/ec_btn_default_material</item>
     </style>
 
 </resources>

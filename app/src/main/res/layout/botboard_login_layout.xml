@@ -61,12 +61,4 @@
         android:elevation="10dp"
         android:layout_marginBottom="40dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:src="@drawable/googleg_color"
-        android:elevation="5dp"
-        android:layout_gravity="center_horizontal" />
-
 </LinearLayout>

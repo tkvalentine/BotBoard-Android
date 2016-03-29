@@ -29,7 +29,9 @@
             android:adjustViewBounds="true"
             android:elevation="5dp"
             android:layout_gravity="center"
-            style="@style/AppTheme.Material.ImageButton" />
+            style="@style/AppTheme.Material.ImageButton"
+            android:backgroundTint="#ffffffff"
+            android:clickable="true" />
 
         <ImageButton
             android:layout_width="@dimen/abc_action_button_min_width_material"
@@ -43,7 +45,8 @@
             android:backgroundTint="#ffffff"
             style="@style/AppTheme.Material.ImageButton"
             android:adjustViewBounds="true"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:clickable="true" />
 
         <ImageButton
             android:layout_width="@dimen/abc_action_button_min_width_material"
@@ -188,7 +191,9 @@
             android:stretchMode="columnWidth"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:columnWidth="@dimen/desk_table_item_image_size" />
+            android:columnWidth="@dimen/desk_table_item_image_size"
+            android:contextClickable="true"
+            android:clickable="true" />
 
         <LinearLayout
             android:orientation="horizontal"
