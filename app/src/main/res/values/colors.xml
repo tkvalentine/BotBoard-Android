@@ -6,4 +6,8 @@
 
 
     <color name="colorControlHighlight">#fff98102</color>
+    <color name="colorControlHighlightTransparent">#ccf98102</color>
+    <color name="cacheColorHint">#FFFBD3A9</color>
+    <color name="material_gray_450">#ffc5c5c5</color>
+    <color name="material_gray_400">#ffa5a5a5</color>
 </resources>

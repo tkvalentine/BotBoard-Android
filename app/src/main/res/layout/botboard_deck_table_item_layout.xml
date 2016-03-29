@@ -36,7 +36,9 @@
         android:duplicateParentState="true"
         android:layout_gravity="center"
         android:backgroundTint="@color/button_material_light"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
 
     <TextView
         android:layout_width="match_parent"

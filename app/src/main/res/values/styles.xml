@@ -11,18 +11,12 @@
                 <item name="android:colorPrimary">@color/primary_material_dark</item>
                 <item name="android:colorAccent">@color/colorAccent</item>
         -->
+        <item name="android:colorEdgeEffect">@color/colorControlHighlightTransparent</item>
+        <item name="android:cacheColorHint">@color/cacheColorHint</item>
     </style>
 
-    <!-- Material imagebutton with no padding/insets/margins. -->
+    <!-- Custom Material imagebutton. -->
     <style name="AppTheme.Material.ImageButton" parent="android:Widget.Material.ImageButton">
-        <!--
-                <item name="android:colorControlHighlight">?android:colorPressedHighlight</item>
-        -->
-        <!--
-                <item name="android:padding">5dip</item>
-                <item name="android:inset">0dip</item>
-                <item name="android:colorControlHighlight">@color/colorControlHighlight</item>
-        -->
         <item name="android:background">@drawable/ec_btn_default_material</item>
     </style>
 

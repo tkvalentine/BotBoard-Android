@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:id="@+id/mainScreenContainer">
+    android:id="@+id/mainScreenContainer"
+    android:background="@color/background_material_dark">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,7 +17,10 @@
         android:paddingRight="5dp"
         android:paddingLeft="5dp"
         android:paddingBottom="5dp"
-        android:background="@color/button_material_light">
+        android:background="@color/material_gray_450"
+        android:backgroundTint="@color/colorControlHighlightTransparent"
+        android:backgroundTintMode="src_atop"
+        android:layout_marginRight="3dp">
 
         <ImageButton
             android:layout_width="@dimen/abc_action_button_min_width_material"
@@ -105,17 +109,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:id="@+id/mainScreenContentContainer">
+        android:id="@+id/mainScreenContentContainer"
+        android:background="@color/background_material_light">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/button_material_light"
+            android:background="@color/material_gray_400"
             android:layout_weight="0"
-            android:layout_marginLeft="2dp"
             android:id="@+id/mainScreenTopBarContainer"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:paddingRight="5dp">
 
             <TextView
@@ -126,7 +130,7 @@
                 android:layout_weight="0"
                 android:gravity="left"
                 android:inputType="none"
-                android:textColor="@color/abc_primary_text_material_light"
+                android:textColor="@color/abc_primary_text_material_dark"
                 android:singleLine="false"
                 android:layout_gravity="center_vertical|left"
                 android:textSize="@dimen/abc_text_size_medium_material" />
@@ -172,11 +176,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/mainScreenDecksGridView"
-            android:layout_marginLeft="2dp"
             android:layout_weight="1"
-            android:requiresFadingEdge="vertical|horizontal"
+            android:requiresFadingEdge="vertical"
             android:saveEnabled="true"
-            android:scrollIndicators="left|right"
+            android:scrollIndicators="bottom|top"
             android:scrollbarAlwaysDrawHorizontalTrack="false"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbarDefaultDelayBeforeFade="250"
@@ -188,26 +191,29 @@
             tools:listitem="@layout/botboard_deck_table_item_layout"
             android:choiceMode="singleChoice"
             android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
+            android:stretchMode="spacingWidthUniform"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:columnWidth="@dimen/desk_table_item_image_size"
             android:contextClickable="true"
-            android:clickable="true" />
+            android:clickable="true"
+            android:background="@color/button_material_light"
+            android:layout_marginTop="3dp"
+            android:verticalSpacing="5dp"
+            android:fastScrollAlwaysVisible="false" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/button_material_light"
+            android:background="@color/material_gray_400"
             android:id="@+id/mainScreenBottomBarContainer"
             android:layout_weight="0"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="5dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp">
+            android:layout_marginTop="3dp">
 
             <ImageButton
                 android:layout_width="@dimen/abc_action_button_min_width_material"
@@ -229,51 +235,46 @@
                 android:id="@+id/mainScreenPlaySeekBar"
                 android:layout_weight="1"
                 android:progress="0"
-                android:background="#bcbcbc"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp" />
+                android:elevation="5dp"
+                android:thumbTint="@color/material_grey_600"
+                android:progressTint="#ff44cc88"
+                android:progressTintMode="src_over"
+                style="@style/AppTheme.Material.ImageButton"
+                android:backgroundTint="@color/material_gray_450" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/mainScreenPlayContainer"
-                android:layout_weight="0"
-                android:layout_gravity="center">
+            <ImageButton
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="@android:dimen/app_icon_size"
+                android:id="@+id/mainScreenPlayBeginningButton"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_skip_previous_black"
+                android:layout_gravity="center_vertical"
+                style="@style/AppTheme.Material.ImageButton"
+                android:backgroundTint="@color/material_gray_450"
+                android:elevation="5dp" />
 
-                <ImageButton
-                    android:layout_width="@android:dimen/app_icon_size"
-                    android:layout_height="@android:dimen/app_icon_size"
-                    android:id="@+id/mainScreenPlayBeginningButton"
-                    android:layout_marginLeft="5dp"
-                    android:background="#bcbcbc"
-                    android:layout_weight="0"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_skip_previous_black"
-                    android:layout_gravity="center_vertical" />
+            <ImageButton
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="@android:dimen/app_icon_size"
+                android:id="@+id/mainScreenPlayPauseButton"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_play_arrow_black"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/material_gray_450"
+                style="@style/AppTheme.Material.ImageButton"
+                android:elevation="5dp" />
 
-                <ImageButton
-                    android:layout_width="@android:dimen/app_icon_size"
-                    android:layout_height="@android:dimen/app_icon_size"
-                    android:id="@+id/mainScreenPlayPauseButton"
-                    android:layout_weight="1"
-                    android:background="#bcbcbc"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_play_arrow_black"
-                    android:layout_gravity="center_vertical" />
+            <ImageButton
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="@android:dimen/app_icon_size"
+                android:id="@+id/mainScreenPlayEndingButton"
+                android:src="@drawable/ic_skip_next_black"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/material_gray_450"
+                style="@style/AppTheme.Material.ImageButton"
+                android:elevation="5dp" />
 
-                <ImageButton
-                    android:layout_width="@android:dimen/app_icon_size"
-                    android:layout_height="@android:dimen/app_icon_size"
-                    android:id="@+id/mainScreenPlayEndingButton"
-                    android:src="@drawable/ic_skip_next_black"
-                    android:scaleType="fitXY"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0"
-                    android:layout_gravity="center_vertical"
-                    android:background="#bcbcbc" />
-
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

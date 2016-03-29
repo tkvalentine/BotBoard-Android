@@ -28,7 +28,7 @@
     -->
     <shape
         android:shape="rectangle"
-        android:tint="?attr/colorButtonNormal">
+        android:tint="?android:attr/colorButtonNormal">
         <!--
                 <corners android:radius="@dimen/control_corner_material" />
                 <solid android:color="@color/white" />
