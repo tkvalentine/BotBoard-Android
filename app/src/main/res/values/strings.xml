@@ -29,8 +29,14 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_bot_board_login2">BotBoardLogin2</string>
 
-    <!-- strings for main screen -->
+    <!-- strings for main screen deck subcontent-->
     <string name="main_screen_titlebar_title">Your Decks</string>
     <string name="main_screen_create_decks_text">Create Deck</string>
+
+    <!-- strings for main screen slides subcontent-->
+    <string name="main_screen_titlebar_title_slides_deck_name">A Deck Name</string>
+    <string name="main_screen_play_slides_text">Play Slide</string>
+    <string name="main_screen_titlebar_title_slides_list">Slide List</string>
+    <string name="main_screen_create_slides_text">Create Slide</string>
 
 </resources>
