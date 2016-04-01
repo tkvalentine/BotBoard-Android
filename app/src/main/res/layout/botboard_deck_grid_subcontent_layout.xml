@@ -4,6 +4,14 @@
     tools:showIn="@layout/botboard_main_layout">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_material_light"
+        android:layout_weight="1"
+        android:id="@+id/mainScreenDecksSubcontentContainer">
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,4 +100,5 @@
         android:layout_marginTop="3dp"
         android:verticalSpacing="5dp"
         android:fastScrollAlwaysVisible="false" />
+    </LinearLayout>
 </merge>
