@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#ff3F51B5</color>
     <color name="colorPrimaryDark">#ff303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -10,4 +11,5 @@
     <color name="cacheColorHint">#FFFBD3A9</color>
     <color name="material_gray_450">#ffc5c5c5</color>
     <color name="material_gray_400">#ffa5a5a5</color>
+    <color name="material_gray_300_alpha88">#dde0e0e0</color>
 </resources>

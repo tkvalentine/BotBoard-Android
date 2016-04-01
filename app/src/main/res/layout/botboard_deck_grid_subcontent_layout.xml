@@ -6,99 +6,101 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/background_material_light"
         android:layout_weight="1"
         android:id="@+id/mainScreenDecksSubcontentContainer">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/material_gray_400"
-        android:layout_weight="0"
-        android:id="@+id/mainScreenTopBarContainerDecks"
-        android:paddingLeft="10dp"
-        android:paddingRight="5dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mainScreenTitleTextViewDecks"
-            android:text="@string/main_screen_titlebar_title"
-            android:layout_weight="0"
-            android:gravity="left"
-            android:inputType="none"
-            android:textColor="@color/abc_primary_text_material_dark"
-            android:singleLine="false"
-            android:layout_gravity="center_vertical|left"
-            android:textSize="@dimen/abc_text_size_medium_material" />
-
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mainScreenCreateDeckContainer"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:gravity="right">
+            android:background="@color/material_gray_400"
+            android:layout_weight="0"
+            android:id="@+id/mainScreenTopBarContainerDecks"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mainScreenCreateDeckTextEdit"
-                android:text="@string/main_screen_create_decks_text"
-                android:visibility="visible"
+                android:id="@+id/mainScreenTitleTextViewDecks"
+                android:text="@string/main_screen_titlebar_title"
+                android:layout_weight="0"
+                android:gravity="left"
                 android:inputType="none"
-                android:textColor="@color/abc_primary_text_material_light"
-                android:elegantTextHeight="false"
-                android:layout_gravity="center_vertical"
+                android:textColor="@color/abc_primary_text_material_dark"
+                android:singleLine="false"
+                android:layout_gravity="center_vertical|left"
                 android:textSize="@dimen/abc_text_size_medium_material" />
 
-            <ImageButton
-                android:layout_width="@dimen/abc_action_button_min_width_material"
-                android:layout_height="@dimen/abc_action_button_min_height_material"
-                android:id="@+id/mainScreenCreateDeckButton"
-                android:src="@drawable/ic_library_add_black"
-                android:scaleType="fitCenter"
-                android:elevation="5dp"
-                android:backgroundTint="#ffffff"
-                android:layout_marginLeft="5dp"
-                style="@style/AppTheme.Material.ImageButton"
-                android:adjustViewBounds="true"
-                android:layout_gravity="center" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenCreateDeckContainer"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:gravity="right">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenCreateDeckTextEdit"
+                    android:text="@string/main_screen_create_decks_text"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:elegantTextHeight="false"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/abc_text_size_medium_material" />
+
+                <ImageButton
+                    android:layout_width="@dimen/abc_action_button_min_width_material"
+                    android:layout_height="@dimen/abc_action_button_min_height_material"
+                    android:id="@+id/mainScreenCreateDeckButton"
+                    android:src="@drawable/ic_library_add_black"
+                    android:scaleType="fitCenter"
+                    android:elevation="5dp"
+                    android:backgroundTint="#ffffff"
+                    android:layout_marginLeft="5dp"
+                    style="@style/AppTheme.Material.ImageButton"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <GridView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mainScreenDecksGridView"
-        android:layout_weight="1"
-        android:requiresFadingEdge="vertical"
-        android:saveEnabled="true"
-        android:scrollIndicators="bottom|top"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarDefaultDelayBeforeFade="250"
-        android:scrollbarFadeDuration="500"
-        android:scrollbarSize="7dp"
-        android:scrollbarStyle="insideInset"
-        android:scrollbars="vertical"
-        android:isScrollContainer="true"
-        tools:listitem="@layout/botboard_deck_grid_item_layout"
-        android:choiceMode="singleChoice"
-        android:numColumns="auto_fit"
-        android:stretchMode="spacingWidthUniform"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:columnWidth="@dimen/desk_table_item_image_container_size"
-        android:contextClickable="true"
-        android:clickable="false"
-        android:background="@color/material_grey_300"
-        android:layout_marginTop="3dp"
-        android:verticalSpacing="5dp"
-        android:fastScrollAlwaysVisible="false" />
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainScreenDecksGridView"
+            android:layout_weight="1"
+            android:requiresFadingEdge="vertical"
+            android:saveEnabled="true"
+            android:scrollIndicators="bottom|top"
+            android:scrollbarAlwaysDrawHorizontalTrack="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarDefaultDelayBeforeFade="250"
+            android:scrollbarFadeDuration="500"
+            android:scrollbarSize="7dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:isScrollContainer="true"
+            tools:listitem="@layout/botboard_deck_grid_item_layout"
+            android:choiceMode="singleChoice"
+            android:numColumns="auto_fit"
+            android:stretchMode="spacingWidthUniform"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:columnWidth="@dimen/desk_table_item_image_container_size"
+            android:contextClickable="true"
+            android:clickable="false"
+            android:background="@drawable/green_screen_portrait"
+            android:layout_marginTop="3dp"
+            android:verticalSpacing="5dp"
+            android:fastScrollAlwaysVisible="false"
+            android:backgroundTint="@color/material_gray_300_alpha88"
+            android:backgroundTintMode="src_atop" />
     </LinearLayout>
 </merge>

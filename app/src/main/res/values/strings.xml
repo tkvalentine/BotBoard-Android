@@ -6,7 +6,7 @@
 
     <string name="app_name">Up Board</string>
     <string name="company_name">Evans and Chambers</string>
-    <string name="app_name_without_company">Bot Board</string>
+    <string name="app_name_without_company">Up Board</string>
 
     <!-- need this to sign in to Google Play Services -->
     <string name="google_app_id">714175265402-74rjbgq8g1iq34tonkeph2olm63u1u2u.apps.googleusercontent.com</string>

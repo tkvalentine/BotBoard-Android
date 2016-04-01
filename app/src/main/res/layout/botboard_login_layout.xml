@@ -19,7 +19,9 @@
         android:adjustViewBounds="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:elevation="10dp" />
+        android:elevation="10dp"
+        style="@style/AppTheme.Material.ImageButton"
+        android:scaleType="fitCenter" />
 
     <TextView
         android:layout_width="wrap_content"
