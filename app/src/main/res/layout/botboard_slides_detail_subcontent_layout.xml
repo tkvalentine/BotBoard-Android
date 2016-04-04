@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        tools:showIn="@layout/botboard_main_layout">
+    -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_material_light"
+        android:layout_weight="1"
+        android:id="@+id/mainScreenSlidesDetailSubcontentContainer">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/material_gray_400"
+            android:id="@+id/mainScreenTopBarContainerSlidesDetail"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:showDividers="none"
+            android:paddingBottom="3dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/mainScreenDetailSlideTitleContainer"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenTitleTextViewSlidesDetailList"
+                    android:text="@string/main_screen_slide_detail_slide_edit_text"
+                    android:gravity="center_vertical|left"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:singleLine="false"
+                    android:textSize="@dimen/abc_text_size_medium_material"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenDetailSlideName"
+                    android:text="@string/main_screen_slide_detail_slide_name_text"
+                    android:gravity="center_vertical|left"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_dark"
+                    android:singleLine="false"
+                    android:textSize="@dimen/abc_text_size_medium_material" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenDetailSlideDeleteContainer"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mainScreenDeleteSlideDetailTextEdit"
+                    android:text="@string/main_screen_delete_slide_text"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:elegantTextHeight="false"
+                    android:textSize="@dimen/abc_text_size_medium_material"
+                    android:gravity="center_vertical|right"
+                    android:layout_gravity="center_vertical|right" />
+
+                <ImageButton
+                    android:layout_width="@dimen/abc_action_button_min_width_material"
+                    android:layout_height="@dimen/abc_action_button_min_height_material"
+                    android:id="@+id/mainScreenDeleteSlideDetailButton"
+                    android:src="@drawable/ic_delete_black"
+                    android:scaleType="fitCenter"
+                    android:elevation="5dp"
+                    android:backgroundTint="#ffffff"
+                    android:layout_marginLeft="5dp"
+                    style="@style/AppTheme.Material.ImageButton"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/mainScreenDetailSlideGraphicContainer"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:layout_weight="4"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/button_material_light"
+            android:layout_marginTop="3dp"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenDetailSlideGraphicImageView"
+                android:src="@drawable/ec_logo"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:layout_weight="9"
+                style="@style/AppTheme.Material.DefaultRectangle"
+                android:padding="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenDetailSlideGraphicBarContainer"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slide Name"
+                    android:id="@+id/textView"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:38AM"
+                    android:id="@+id/textView2"
+                    android:layout_marginRight="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="87F"
+                    android:id="@+id/textView3" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.evanschambers.botboard.subcomponents.ECScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/mainScreenDetailSlideDataScrollView"
+            android:background="@drawable/numbers_background"
+            android:backgroundTint="@color/material_gray_300_alpha88"
+            android:backgroundTintMode="src_atop"
+            android:layout_weight="3"
+            android:fillViewport="true"
+            android:scrollIndicators="bottom|top"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            android:scrollbarDefaultDelayBeforeFade="250"
+            android:scrollbarFadeDuration="500"
+            android:scrollbarSize="7dp"
+            android:scrollbarStyle="insideInset"
+            android:fadingEdge="vertical"
+            android:requiresFadingEdge="vertical">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/slideDetaiScrollViewlListItemContainer"
+                android:backgroundTint="@color/button_material_light"
+                android:elevation="5dp"
+                android:addStatesFromChildren="false">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideTypeListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTypeLabel"
+                        android:text="@string/main_screen_slide_detail_slide_type_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTypeSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_type_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideTitleListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTitleLabel"
+                        android:text="@string/main_screen_slide_detail_slide_title_text"
+                        android:inputType="none"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTitleEditText"
+                        android:elevation="5dp"
+                        android:text="Slide Title"
+                        android:editable="true"
+                        android:background="@color/primary_material_light"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:layout_weight=".6" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideDurationListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideDurationLabel"
+                        android:text="@string/main_screen_slide_detail_slide_duration_text"
+                        android:inputType="none"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideDurationEditText"
+                        android:elevation="5dp"
+                        android:text="3.2s"
+                        android:editable="true"
+                        android:background="@color/primary_material_light"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:layout_weight=".6" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideTransistionInListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTransistionInLabel"
+                        android:text="@string/main_screen_slide_detail_slide_transistion_in_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTransistionInSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_transistion_in_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideTransistionOutListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTransistionOutLabel"
+                        android:text="@string/main_screen_slide_detail_slide_transistion_out_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTransistionOutSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_transistion_out_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideTransistionDurationListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTransistionDurationLabel"
+                        android:text="@string/main_screen_slide_detail_slide_transistion_duration_text"
+                        android:inputType="none"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTransistionDurationEditText"
+                        android:elevation="5dp"
+                        android:text="3.2s"
+                        android:editable="true"
+                        android:background="@color/primary_material_light"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:layout_weight=".6" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideActiveListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideActiveLabel"
+                        android:text="@string/main_screen_slide_detail_slide_active_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideActiveSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_active_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideLogoListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideLogoLabel"
+                        android:text="@string/main_screen_slide_detail_slide_logo_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideLogoSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_logo_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.evanschambers.botboard.subcomponents.ECScrollView>
+
+    </LinearLayout>
+</merge>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="TAG_POSITION_INDEX">0</integer>
+    <integer name="TAG_SLIDE_NAME_INDEX">1</integer>
+</resources>

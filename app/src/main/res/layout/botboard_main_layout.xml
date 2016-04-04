@@ -115,17 +115,23 @@
             android:id="@+id/mainSubcontentScreenViewAnimator"
             android:layout_weight="1">
 
-        <include
-            layout="@layout/botboard_deck_grid_subcontent_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/decksSubcontent" />
+            <include
+                layout="@layout/botboard_deck_grid_subcontent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/decksSubcontent" />
 
-        <include
-            layout="@layout/botboard_slides_list_subcontent_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/slidesSubcontent" />
+            <include
+                layout="@layout/botboard_slides_list_subcontent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/slidesSubcontent" />
+
+            <include
+                layout="@layout/botboard_slides_detail_subcontent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/slidesDetailSubcontent" />
 
         </ViewAnimator>
 

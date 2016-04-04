@@ -30,13 +30,58 @@
     <string name="title_activity_bot_board_login2">BotBoardLogin2</string>
 
     <!-- strings for main screen deck subcontent-->
-    <string name="main_screen_titlebar_title">Your Decks</string>
-    <string name="main_screen_create_decks_text">Create Deck</string>
+    <string name="main_screen_decks_titlebar_title">Your Decks</string>
+    <string name="main_screen_create_decks_text">Create</string>
 
     <!-- strings for main screen slides subcontent-->
+    <string name="main_screen_slides_titlebar_title">Your Slides</string>
     <string name="main_screen_titlebar_title_slides_deck_name">A Deck Name</string>
-    <string name="main_screen_play_slides_text">Play Slide</string>
+    <string name="main_screen_play_slides_text">Play</string>
     <string name="main_screen_titlebar_title_slides_list">Slide List</string>
-    <string name="main_screen_create_slides_text">Create Slide</string>
+    <string name="main_screen_create_slides_text">Create</string>
+
+    <!-- strings for main screen slide detail subcontent-->
+    <string name="main_screen_delete_slide_text">Delete</string>
+    <string name="main_screen_slide_detail_slide_name_text">A Slide Name</string>
+    <string name="main_screen_slide_detail_slide_edit_text">Edit Slide</string>
+    <string name="main_screen_slide_detail_slide_type_text">Type:</string>
+    <string name="main_screen_slide_detail_slide_title_text">Title:</string>
+    <string name="main_screen_slide_detail_slide_duration_text">Duration:</string>
+    <string name="main_screen_slide_detail_slide_transistion_in_text">Transistion In:</string>
+    <string name="main_screen_slide_detail_slide_transistion_out_text">Transistion Out:</string>
+    <string name="main_screen_slide_detail_slide_transistion_duration_text">Transistion Duration:</string>
+    <string name="main_screen_slide_detail_slide_active_text">Active:</string>
+    <string name="main_screen_slide_detail_slide_logo_text">Logo:</string>
+
+    <string-array name="slide_type_array">
+        <item>logo</item>
+        <item>weather</item>
+        <item>video</item>
+        <item>picture</item>
+    </string-array>
+
+    <string-array name="slide_transistion_in_array">
+        <item>fade from white</item>
+        <item>fade from black</item>
+        <item>slide in</item>
+        <item>dissolve in</item>
+    </string-array>
+
+    <string-array name="slide_transistion_out_array">
+        <item>fade to white</item>
+        <item>fade to black</item>
+        <item>slide out</item>
+        <item>dissolve out</item>
+    </string-array>
+
+    <string-array name="slide_active_array">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+
+    <string-array name="slide_logo_array">
+        <item>settings</item>
+        <item>none</item>
+    </string-array>
 
 </resources>

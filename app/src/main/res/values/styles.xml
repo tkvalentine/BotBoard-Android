@@ -26,4 +26,8 @@
         <item name="android:background">@drawable/ec_btn_default_material</item>
     </style>
 
+    <style name="AppTheme.Material.DefaultRectangle">
+        <item name="android:background">@drawable/ec_default_mtrl_rounded_rectangle</item>
+    </style>
+
 </resources>
