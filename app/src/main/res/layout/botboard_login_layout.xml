@@ -8,21 +8,26 @@
     android:background="#d5d5d5"
     android:padding="20dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ec_logo"
-        android:maxHeight="196dp"
-        android:maxWidth="196dp"
-        android:background="#eee9e9"
-        android:adjustViewBounds="true"
-        android:elevation="10dp"
-        style="@style/AppTheme.Material.DefaultRectangle"
-        android:scaleType="fitCenter"
-        android:padding="5dp"
-        android:layout_weight="0"
-        android:layout_margin="5dp" />
+        android:gravity="center_vertical|center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ec_logo"
+            android:maxHeight="196dp"
+            android:maxWidth="196dp"
+            android:adjustViewBounds="true"
+            android:elevation="5dp"
+            style="@style/AppTheme.Material.DefaultRectangleNoInsets"
+            android:scaleType="fitCenter"
+            android:layout_weight="0"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

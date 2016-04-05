@@ -18,7 +18,8 @@
         android:background="@color/material_gray_450"
         android:backgroundTint="@color/colorControlHighlightTransparent"
         android:backgroundTintMode="src_atop"
-        android:layout_marginRight="3dp">
+        android:layout_marginRight="3dp"
+        android:layout_gravity="center">
 
         <ImageButton
             android:layout_width="@dimen/abc_action_button_min_width_material"
@@ -27,7 +28,6 @@
             android:src="@drawable/ic_library_books_black"
             android:scaleType="fitCenter"
             android:layout_weight="0"
-            android:layout_marginBottom="5dp"
             android:adjustViewBounds="true"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -43,7 +43,6 @@
             android:scaleType="fitCenter"
             android:layout_weight="0"
             android:elevation="5dp"
-            android:layout_marginBottom="5dp"
             android:backgroundTint="#ffffff"
             style="@style/AppTheme.Material.ImageButton"
             android:adjustViewBounds="true"
@@ -58,7 +57,6 @@
             android:scaleType="fitCenter"
             android:layout_weight="0"
             android:elevation="5dp"
-            android:layout_marginBottom="5dp"
             android:backgroundTint="#ffffff"
             style="@style/AppTheme.Material.ImageButton"
             android:adjustViewBounds="true"
@@ -72,7 +70,6 @@
             android:src="@drawable/ic_exit_to_app_black"
             android:layout_weight="0"
             android:elevation="5dp"
-            android:layout_marginBottom="5dp"
             android:backgroundTint="#ffffff"
             style="@style/AppTheme.Material.ImageButton"
             android:adjustViewBounds="true"
@@ -80,18 +77,16 @@
 
         <Space
             android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/mainScreenMenuSpacer"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp" />
+            android:minHeight="0dp" />
 
         <ImageButton
             android:layout_width="@dimen/abc_action_button_min_width_material"
             android:layout_height="@dimen/abc_action_button_min_height_material"
             android:id="@+id/mainScreenUserButton"
             android:scaleType="fitCenter"
-            android:layout_marginTop="5dp"
             android:src="@drawable/ic_account_circle_black"
             android:layout_weight="0"
             android:elevation="5dp"
@@ -99,6 +94,19 @@
             style="@style/AppTheme.Material.ImageButton"
             android:adjustViewBounds="true"
             android:layout_gravity="center" />
+
+        <ImageButton
+            style="@style/AppTheme.Material.ImageButton"
+            android:layout_width="@dimen/abc_action_button_min_width_material"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:id="@+id/mainScreenPlayInfoButton"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_info_black"
+            android:layout_weight="0"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#ffffff"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,9 +119,9 @@
 
         <ViewAnimator
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:id="@+id/mainSubcontentScreenViewAnimator"
-            android:layout_weight="1">
+            android:layout_weight="7">
 
             <include
                 layout="@layout/botboard_deck_grid_subcontent_layout"
@@ -141,30 +149,15 @@
             android:layout_height="wrap_content"
             android:background="@color/material_gray_400"
             android:id="@+id/mainScreenBottomBarContainer"
-            android:layout_weight="0"
             android:paddingLeft="5dp"
-            android:paddingTop="5dp"
             android:paddingRight="5dp"
+            android:layout_marginTop="3dp"
             android:paddingBottom="5dp"
-            android:layout_marginTop="3dp">
-
-            <ImageButton
-                android:layout_width="@dimen/abc_action_button_min_width_material"
-                android:layout_height="@dimen/abc_action_button_min_height_material"
-                android:id="@+id/mainScreenPlayInfoButton"
-                android:layout_marginRight="5dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_info_black"
-                android:layout_weight="0"
-                android:elevation="5dp"
-                android:layout_gravity="center"
-                android:backgroundTint="#ffffff"
-                style="@style/AppTheme.Material.ImageButton"
-                android:adjustViewBounds="true" />
+            android:paddingTop="5dp">
 
             <SeekBar
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/mainScreenPlaySeekBar"
                 android:layout_weight="1"
                 android:progress="0"
@@ -173,7 +166,8 @@
                 android:progressTint="#ff44cc88"
                 android:progressTintMode="src_over"
                 style="@style/AppTheme.Material.ImageButton"
-                android:backgroundTint="@color/material_grey_300" />
+                android:backgroundTint="@color/material_grey_300"
+                android:layout_gravity="center_vertical" />
 
             <ImageButton
                 android:layout_width="@android:dimen/app_icon_size"

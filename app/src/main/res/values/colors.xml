@@ -12,5 +12,5 @@
     <color name="material_gray_450">#ffc5c5c5</color>
     <color name="material_gray_400">#ffa5a5a5</color>
     <color name="material_gray_300_alpha88">#dde0e0e0</color>
-    <color name="scrollview_fading_edge_light_orange">#ffffc36d</color>
+    <color name="scrollview_fading_edge_light_orange">#ffffd291</color>
 </resources>

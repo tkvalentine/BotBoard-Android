@@ -10,19 +10,20 @@
         android:layout_height="match_parent"
         android:background="@color/background_material_light"
         android:layout_weight="1"
-        android:id="@+id/mainScreenSlidesDetailSubcontentContainer">
+        android:id="@+id/mainScreenSlidesDetailSubcontentContainer"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@color/material_gray_400"
             android:id="@+id/mainScreenTopBarContainerSlidesDetail"
             android:paddingLeft="10dp"
             android:paddingRight="5dp"
             android:showDividers="none"
-            android:paddingBottom="3dp"
-            android:layout_weight="1">
+            android:paddingBottom="3dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -44,16 +45,6 @@
                     android:textSize="@dimen/abc_text_size_medium_material"
                     android:layout_weight="1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mainScreenDetailSlideName"
-                    android:text="@string/main_screen_slide_detail_slide_name_text"
-                    android:gravity="center_vertical|left"
-                    android:inputType="none"
-                    android:textColor="@color/abc_primary_text_material_dark"
-                    android:singleLine="false"
-                    android:textSize="@dimen/abc_text_size_medium_material" />
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +92,7 @@
             android:layout_height="0dp"
             android:id="@+id/mainScreenDetailSlideGraphicContainer"
             android:paddingLeft="10dp"
-            android:paddingRight="5dp"
+            android:paddingRight="10dp"
             android:layout_weight="4"
             android:paddingBottom="5dp"
             android:layout_marginBottom="3dp"
@@ -109,46 +100,74 @@
             android:layout_marginTop="3dp"
             android:paddingTop="5dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/mainScreenDetailSlideGraphicImageView"
-                android:src="@drawable/ec_logo"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center"
-                android:layout_weight="9"
-                style="@style/AppTheme.Material.DefaultRectangle"
-                android:padding="5dp" />
+                android:layout_margin="5dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_weight="9">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenDetailSlideGraphicImageView"
+                    android:src="@drawable/ec_logo"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    style="@style/AppTheme.Material.DefaultRectangleNoInsets"
+                    android:padding="5dp"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/mainScreenDetailSlideGraphicBarContainer"
-                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                style="@style/AppTheme.Material.DefaultRectangleNoInsets"
+                android:elevation="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1">
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:backgroundTint="@color/material_grey_300"
+                android:backgroundTintMode="src_over">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/abc_text_size_medium_material"
                     android:text="Slide Name"
-                    android:id="@+id/textView"
-                    android:layout_weight="1" />
+                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerSlideName"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/abc_text_size_medium_material"
                     android:text="10:38AM"
-                    android:id="@+id/textView2"
-                    android:layout_marginRight="10dp" />
+                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerTime"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/abc_text_size_medium_material"
                     android:text="87F"
-                    android:id="@+id/textView3" />
+                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerTemperature"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp" />
             </LinearLayout>
+
         </LinearLayout>
 
         <com.evanschambers.botboard.subcomponents.ECScrollView
@@ -169,7 +188,9 @@
             android:scrollbarSize="7dp"
             android:scrollbarStyle="insideInset"
             android:fadingEdge="vertical"
-            android:requiresFadingEdge="vertical">
+            android:requiresFadingEdge="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
@@ -178,7 +199,10 @@
                 android:id="@+id/slideDetaiScrollViewlListItemContainer"
                 android:backgroundTint="@color/button_material_light"
                 android:elevation="5dp"
-                android:addStatesFromChildren="false">
+                android:addStatesFromChildren="false"
+                android:paddingLeft="5dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true">
 
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:orientation="horizontal"
@@ -189,7 +213,9 @@
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -213,7 +239,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/primary_material_light"
                         android:layout_weight=".6"
-                        android:layout_margin="5dp" />
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 
@@ -225,7 +252,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -253,7 +282,9 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textSize="@dimen/abc_text_size_body_1_material"
-                        android:layout_weight=".6" />
+                        android:layout_weight=".6"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
 
                 </LinearLayout>
 
@@ -265,7 +296,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -293,7 +326,9 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textSize="@dimen/abc_text_size_body_1_material"
-                        android:layout_weight=".6" />
+                        android:layout_weight=".6"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
 
                 </LinearLayout>
 
@@ -305,7 +340,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -329,7 +366,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/primary_material_light"
                         android:layout_weight=".6"
-                        android:layout_margin="5dp" />
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 
@@ -341,7 +379,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -365,7 +405,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/primary_material_light"
                         android:layout_weight=".6"
-                        android:layout_margin="5dp" />
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 
@@ -377,7 +418,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -405,7 +448,9 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textSize="@dimen/abc_text_size_body_1_material"
-                        android:layout_weight=".6" />
+                        android:layout_weight=".6"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
 
                 </LinearLayout>
 
@@ -417,7 +462,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -441,7 +488,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/primary_material_light"
                         android:layout_weight=".6"
-                        android:layout_margin="5dp" />
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 
@@ -453,7 +501,9 @@
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
                     android:elevation="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
 
                     <TextView
                         android:layout_width="0dp"
@@ -477,7 +527,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/primary_material_light"
                         android:layout_weight=".6"
-                        android:layout_margin="5dp" />
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 

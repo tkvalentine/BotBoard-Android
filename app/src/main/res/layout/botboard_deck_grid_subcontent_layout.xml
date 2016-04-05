@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/material_gray_400"
-            android:layout_weight="0"
             android:id="@+id/mainScreenTopBarContainerDecks"
             android:paddingLeft="10dp"
             android:paddingRight="5dp">
@@ -25,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mainScreenTitleTextViewDecks"
-                android:text="@string/main_screen_slides_titlebar_title"
+                android:text="@string/main_screen_decks_titlebar_title"
                 android:layout_weight="0"
                 android:gravity="left"
                 android:inputType="none"
@@ -40,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/mainScreenCreateDeckContainer"
                 android:layout_weight="1"
-                android:layout_gravity="right"
+                android:layout_gravity="center_vertical|right"
                 android:gravity="right">
 
                 <TextView
@@ -73,9 +72,9 @@
 
         <GridView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:id="@+id/mainScreenDecksGridView"
-            android:layout_weight="1"
+            android:layout_weight="6"
             android:requiresFadingEdge="vertical"
             android:saveEnabled="true"
             android:scrollIndicators="bottom|top"

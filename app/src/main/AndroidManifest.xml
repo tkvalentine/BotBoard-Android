@@ -41,7 +41,7 @@
 
         <activity
             android:name=".BotBoardMain"
-            android:label="BotBoard Main" >
+            android:label="BotBoard Main">
             <intent-filter>
                 <action android:name="com.evanschambers.botboard.BotBoardMain" />
 
