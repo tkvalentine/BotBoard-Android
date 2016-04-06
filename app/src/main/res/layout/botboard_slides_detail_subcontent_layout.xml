@@ -202,7 +202,8 @@
                 android:addStatesFromChildren="false"
                 android:paddingLeft="5dp"
                 android:focusableInTouchMode="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:descendantFocusability="beforeDescendants">
 
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:orientation="horizontal"
@@ -215,7 +216,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -254,7 +256,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -298,7 +301,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -342,7 +346,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -381,7 +386,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -420,7 +426,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -464,7 +471,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"
@@ -503,7 +511,8 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="5dp"
                     android:focusableInTouchMode="true"
-                    android:focusable="true">
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
 
                     <TextView
                         android:layout_width="0dp"

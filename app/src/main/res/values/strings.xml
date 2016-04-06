@@ -55,16 +55,18 @@
 
     <string-array name="slide_type_array">
         <item>logo</item>
-        <item>weather</item>
-        <item>video</item>
         <item>picture</item>
+        <item>sms</item>
+        <item>bioPanels</item>
+        <item>weather</item>
+        <item>staticVideoOverlay</item>
+        <item>dropIn</item>
+        <item>dashboard</item>
     </string-array>
 
     <string-array name="slide_transistion_in_array">
-        <item>fade from white</item>
-        <item>fade from black</item>
-        <item>slide in</item>
-        <item>dissolve in</item>
+        <item>fade</item>
+        <item>slide</item>
     </string-array>
 
     <string-array name="slide_transistion_out_array">
