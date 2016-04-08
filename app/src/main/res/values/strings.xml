@@ -52,6 +52,8 @@
     <string name="main_screen_slide_detail_slide_transistion_duration_text">Transistion Duration:</string>
     <string name="main_screen_slide_detail_slide_active_text">Active:</string>
     <string name="main_screen_slide_detail_slide_logo_text">Logo:</string>
+    <string name="main_screen_slide_detail_slide_show_footer_text">Footer:</string>
+    <string name="main_screen_slide_detail_slide_content_text">Content:</string>
 
     <string-array name="slide_type_array">
         <item>logo</item>
@@ -70,10 +72,8 @@
     </string-array>
 
     <string-array name="slide_transistion_out_array">
-        <item>fade to white</item>
-        <item>fade to black</item>
-        <item>slide out</item>
-        <item>dissolve out</item>
+        <item>fade</item>
+        <item>slide</item>
     </string-array>
 
     <string-array name="slide_active_array">
@@ -84,6 +84,15 @@
     <string-array name="slide_logo_array">
         <item>settings</item>
         <item>none</item>
+    </string-array>
+
+    <string-array name="slide_show_footer_array">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+
+    <string-array name="slide_context_array">
+        <item>a placeholder</item>
     </string-array>
 
 </resources>

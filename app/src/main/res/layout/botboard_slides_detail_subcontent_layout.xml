@@ -4,7 +4,7 @@
         tools:showIn="@layout/botboard_main_layout">
     -->
 
-    <LinearLayout
+    <com.evanschambers.botboard.subcomponents.ECLinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -340,6 +340,51 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/slideTransistionDurationListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideTransistionDurationLabel"
+                        android:text="@string/main_screen_slide_detail_slide_transistion_duration_text"
+                        android:inputType="none"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideTransistionDurationEditText"
+                        android:elevation="5dp"
+                        android:text="3.2s"
+                        android:editable="true"
+                        android:background="@color/primary_material_light"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:layout_weight=".6"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/slideTransistionInListItemContainer"
                     style="@style/AppTheme.Material.DefaultRectangle"
                     android:backgroundTint="@color/button_material_light"
@@ -413,51 +458,6 @@
                         android:layout_weight=".6"
                         android:layout_margin="5dp"
                         android:focusable="false" />
-
-                </LinearLayout>
-
-                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/slideTransistionDurationListItemContainer"
-                    style="@style/AppTheme.Material.DefaultRectangle"
-                    android:backgroundTint="@color/button_material_light"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:focusableInTouchMode="true"
-                    android:focusable="false"
-                    android:descendantFocusability="beforeDescendants">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/slideTransistionDurationLabel"
-                        android:text="@string/main_screen_slide_detail_slide_transistion_duration_text"
-                        android:inputType="none"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight=".4" />
-
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/abc_text_size_large_material"
-                        android:id="@+id/slideTransistionDurationEditText"
-                        android:elevation="5dp"
-                        android:text="3.2s"
-                        android:editable="true"
-                        android:background="@color/primary_material_light"
-                        android:textColor="@color/primary_text_default_material_light"
-                        android:enabled="true"
-                        android:inputType="text"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:textSize="@dimen/abc_text_size_body_1_material"
-                        android:layout_weight=".6"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true" />
 
                 </LinearLayout>
 
@@ -541,9 +541,89 @@
 
                 </LinearLayout>
 
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideShowFooterListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideShowFooterLabel"
+                        android:text="@string/main_screen_slide_detail_slide_show_footer_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideShowFooterSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_show_footer_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideContentListItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slideContentLabel"
+                        android:text="@string/main_screen_slide_detail_slide_content_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideContextSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_context_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </com.evanschambers.botboard.subcomponents.ECScrollView>
 
-    </LinearLayout>
+    </com.evanschambers.botboard.subcomponents.ECLinearLayout>
 </merge>
