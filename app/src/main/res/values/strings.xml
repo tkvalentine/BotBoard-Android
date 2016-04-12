@@ -81,6 +81,11 @@
         <item>no</item>
     </string-array>
 
+    <string-array name="slide_status_array">
+        <item>running</item>
+        <item>stopped</item>
+    </string-array>
+
     <string-array name="slide_logo_array">
         <item>settings</item>
         <item>none</item>
@@ -97,5 +102,33 @@
 
     <!-- strings for main screen slide detail content subcontent-->
     <string name="main_screen_slide_content_slide_text">Slide Content</string>
+    <string name="slide_detail_content_default_message_text">Default:</string>
+    <string name="slide_detail_content_message_text">Message:</string>
+    <string name="slide_detail_content_prefix_text">Prefix:</string>
+    <string name="slide_detail_content_caption_text">Caption:</string>
+    <string name="slide_detail_content_event_text">Event:</string>
+    <string name="slide_detail_content_bio_text">Bio:</string>
+    <string name="slide_detail_content_name_text">Name:</string>
+    <string name="slide_detail_content_imageurl_text">Image URL:</string>
+    <string name="slide_detail_content_videourl_text">Video URL:</string>
+    <string name="slide_detail_content_imageurlcontent_text">Image URL content:</string>
+    <string name="slide_detail_content_imageurlcover_text">Image URL cover:</string>
+    <string name="slide_detail_content_timeout_text">Timeout:</string>
+    <string name="slide_detail_content_zip_text">Zip:</string>
+    <string name="slide_detail_content_hireyear_text">Hire year:</string>
+    <string name="slide_detail_content_from_text">From (tel):</string>
+    <string name="slide_detail_content_overlaycolor_text">Overlay color:</string>
+    <string name="slide_detail_content_overlay_text">Overlay:</string>
+    <string name="slide_detail_content_status_text">Status:</string>
+    <string name="slide_detail_content_timestamp_text">Time stamp:</string>
+    <string name="slide_detail_content_todayingestrate_text">Ingest rate:</string>
+    <string name="slide_detail_content_todayingestcount_text">Ingest count:</string>
+    <string name="slide_detail_content_todayerrorcount_text">Error count:</string>
+    <string name="slide_detail_content_yesterdayingestcount_text">Ingest count:</string>
+    <string name="slide_detail_content_yesterdayerrorcount_text">Error count:</string>
+    <string name="slide_detail_content_uptimedownminutes_text">Down minutes:</string>
+    <string name="slide_detail_content_uptimetotalminutes_text">Total minutes:</string>
+    <string name="slide_detail_content_layout_text">Layout:</string>
+    <string name="slide_detail_content_snapshot_text">Snapshot:</string>
 
 </resources>
