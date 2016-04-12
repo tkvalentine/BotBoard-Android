@@ -19,8 +19,8 @@ public class Timing {
 
     public static Timing createDefaultTiming(){
         Timing newDefaultTiming = new Timing();
-        newDefaultTiming.transitionTime = 10000l;
-        newDefaultTiming.slideTime = 2000l;
+        newDefaultTiming.transitionTime = 5000l;
+        newDefaultTiming.slideTime = 50000l;
 
         return newDefaultTiming;
     }

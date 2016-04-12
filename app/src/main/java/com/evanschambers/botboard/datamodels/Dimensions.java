@@ -6,8 +6,8 @@ package com.evanschambers.botboard.datamodels;
 public class Dimensions {
     private static final String TAG = Dimensions.class.getSimpleName();
     private static final String NODE_NAME = "dimensions";
-    private Long height;
-    private Long width;
+    private Long height = 128l;
+    private Long width = 128l;
 
     public Dimensions() {
     }

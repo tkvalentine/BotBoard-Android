@@ -130,4 +130,71 @@ public class BotBoardFirebaseRecord {
     public void setDecks(Hashtable<Integer, Deck> decks) {
         this.decks = decks;
     }
+
+    public static Deck[] convertDecksHashtableToDeckArray(Hashtable<Integer, Deck> decks) {
+        Deck[] deckArray = null;
+        if (decks == null || decks.size() <= 0) {
+            deckArray = new Deck[]{};
+        } else {
+            Collection<Deck> deckHashtableValues = decks.values();
+            Object[] deckObjectArray = deckHashtableValues.toArray();
+            deckArray = new Deck[deckObjectArray.length];
+            for(int i = 0; i < deckObjectArray.length; i++){
+                deckArray[i] = (Deck)deckObjectArray[i];
+            }
+        }
+        return deckArray;
+    }
+
+    public static Slide[] convertSlidesHashtableToSlideArray(Hashtable<Integer, Slide> slides) {
+        Slide[] slideArray = null;
+        if (slides == null || slides.size() <= 0) {
+            slideArray = new Slide[]{};
+        } else {
+            Collection<Slide> slidesHashtableValues = slides.values();
+            Object[] slideObjectArray = slidesHashtableValues.toArray();
+            slideArray = new Slide[slideObjectArray.length];
+            for(int i = 0; i < slideObjectArray.length; i++){
+                slideArray[i] = (Slide)slideObjectArray[i];
+            }
+        }
+        return slideArray;
+    }
+
+    public static Slide[] getSlidesArrayForADeck(int selectedDeckIndex, Deck deck){
+        Slide[] slides = null;
+
+        slides = BotBoardFirebaseRecord.convertSlidesHashtableToSlideArray(deck.getSlides());
+        return slides;
+    }
+
+    public static Hashtable<Integer, Slide> getSlidesHashtableForADeck(int selectedDeckIndex, Deck deck){
+        Hashtable<Integer, Slide> slides = null;
+
+        slides = deck.getSlides();
+        return slides;
+    }
+
+
+    public static Content[] convertContentsHashtableToContentsArray(Hashtable<Integer, Content> contents) {
+        Content[] contentArray = null;
+        if (contents == null || contents.size() <= 0) {
+            contentArray = new Content[]{};
+        } else {
+            Collection<Content> contentHashtableValues = contents.values();
+            Object[] contentObjectArray = contentHashtableValues.toArray();
+            contentArray = new Content[contentObjectArray.length];
+            for (int i = 0; i < contentObjectArray.length; i++) {
+                contentArray[i] = (Content) contentObjectArray[i];
+            }
+        }
+        return contentArray;
+    }
+
+    public static Content[] getContentArrayForASlide(int selectedSlideIndex, Slide slide) {
+        Content[] content = null;
+
+        content = BotBoardFirebaseRecord.convertContentsHashtableToContentsArray(slide.getContent());
+        return content;
+    }
 }

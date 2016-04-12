@@ -1,7 +1,5 @@
 package com.evanschambers.botboard.datamodels;
 
-import android.transition.Transition;
-
 /**
  * Created by timvalentine on 3/17/16.
  */
@@ -47,7 +45,8 @@ public class Transitions {
     private String getThisJSONValue(){
         String myJSONValue =
                 "{" +
-                "\"exit\":\"" + exit + "\", \"entry\":\"" + entry + "\"" +
+                        "\"exit\":\"" + exit + "\", " +
+                        "\"entry\":\"" + entry + "\"" +
                 "}";
 
         return myJSONValue;

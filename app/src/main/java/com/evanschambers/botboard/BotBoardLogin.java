@@ -31,8 +31,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
-import org.json.JSONObject;
-
 import java.io.IOException;
 
 //import com.google.android.gms.auth.api.Auth;
@@ -74,6 +72,9 @@ public class BotBoardLogin extends Activity  implements
     private Query myUserDataFirebaseQuery;
     private String myAuthToken = null;
     private AuthData myAuthData = null;
+
+    private View mDecksSubcontentContainer;
+    private View mSlidesSubcontentContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -333,6 +334,7 @@ public class BotBoardLogin extends Activity  implements
                 if (myAuthData != null) {
                     Log.v(TAG, ">>>getFirebaseConnectionAndUserData() : AuthResultHandler() : got authData");
                     java.util.Map<String, Object> auth = myAuthData.getAuth();
+
                     Log.v(TAG, ">>>getFirebaseConnectionAndUserData() : AuthResultHandler() : myAuthData.getAuth() = " + auth.toString());
                     //String googleAuthIdRaw = (String)auth.get("uid");
                     //String[] splits = googleAuthIdRaw.split(":");
@@ -361,22 +363,26 @@ public class BotBoardLogin extends Activity  implements
 
                     // Attach an listener to read the data at our posts reference
                     myUserDataFirebaseQuery.addValueEventListener(new ValueEventListener() {
+                        //this method is called for the initial query or everytime a write is done.
                         @Override
                         public void onDataChange(com.firebase.client.DataSnapshot snapshot) {
                             Log.v(TAG, ">>>getFirebaseConnectionAndUserData().onAuthenticated() : myUserDataFirebaseQuery.onDataChange() : snapshot =" + snapshot.toString());
-                            JSONObject snapShotJSONObject = null;
+
                             //DataSnapshot { key = 113250030596853243779, value = null }
                             Object snapshotValueObject = snapshot.getValue();
 
-                            if (snapshotValueObject != null) {
+                            //THIS WILL HAPPEN AFTER THE FIRST TIME THROUGH WITH NO USER DATA ON FIREBASE
+                            if (snapshotValueObject != null && BotBoardApplication.isInitialFirebaseAccess) {
                                 //if this is app startup and the response from the query for myUserDataFirebaseQuery
                                 //then we need to load the user's record from Firebase
-                                if (BotBoardApplication.isInitialFirebaseAccess) {
-                                    BotBoardApplication.userRecord = snapshot.getValue(BotBoardFirebaseRecord.class);
+                                BotBoardApplication.userRecord = snapshot.getValue(BotBoardFirebaseRecord.class);
 
-                                    BotBoardApplication.isInitialFirebaseAccess = false;
-                                }
-                            } else {
+                                BotBoardApplication.isInitialFirebaseAccess = false;
+
+                                startMainAppActivity();
+                            }
+                            //THIS WILL HAPPEN THE FIRST TIME THROUGH WITH NO USER DATA ON FIREBASE
+                            else if (snapshotValueObject == null && BotBoardApplication.isInitialFirebaseAccess) {
                                 //no data for this Google uathenticated user
                                 //create a user node in Firebase
                                 BotBoardApplication.userRecord =
@@ -385,10 +391,9 @@ public class BotBoardLogin extends Activity  implements
                                                 BotBoardApplication.userEmail,
                                                 BotBoardApplication.userAuthProvider);
 
-                                //String newUserJSONValuesString = BotBoardApplication.userRecord.toJSONValueString();
+                                String newUserJSONValuesString = BotBoardApplication.userRecord.toJSONValueString();
                                 BotBoardApplication.myFirebaseRef.child("users")
                                         .child(BotBoardApplication.userId)
-//                                            .setValue(newUserJSONValuesString, new Firebase.CompletionListener() {
                                         .setValue(BotBoardApplication.userRecord, new Firebase.CompletionListener() {
                                             @Override
                                             public void onComplete(FirebaseError firebaseError, Firebase firebase) {
@@ -399,6 +404,10 @@ public class BotBoardLogin extends Activity  implements
                                         });
 
                                 BotBoardApplication.isInitialFirebaseAccess = false;
+                            }
+                            //WE HAVE EITHER CREATED A DEFAULT USER RECORD this is the default record write pass
+                            else {
+                                startMainAppActivity();
                             }
                         }
 
@@ -446,8 +455,6 @@ public class BotBoardLogin extends Activity  implements
 
                 Toast.makeText(getApplicationContext(), "Authentication successful.",
                         Toast.LENGTH_SHORT).show();
-
-                startMainAppActivity();
             }
 
             @Override
@@ -477,6 +484,8 @@ public class BotBoardLogin extends Activity  implements
             Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
             mGoogleApiClient.disconnect();
         }
+        myUserDataFirebaseQuery = null;
+
         this.finish();
     }
 

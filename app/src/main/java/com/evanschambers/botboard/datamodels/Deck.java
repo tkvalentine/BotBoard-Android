@@ -25,6 +25,9 @@ public class Deck {
     private Logo logo;
     private Hashtable<Integer, Slide> slides = new Hashtable<Integer, Slide>();
 
+    public Deck() {
+    }
+
     public static Deck createDefaultDeck(){
         Deck newDefaultDeck = new Deck();
         int i = (int)(UUID.randomUUID().getLeastSignificantBits());
@@ -40,9 +43,14 @@ public class Deck {
         newDefaultDeck.createdDate = System.currentTimeMillis();
         newDefaultDeck.updatedDate = newDefaultDeck.createdDate;
         newDefaultDeck.logo = Logo.createDefaultLogo();
-        Slide newDefaultSlide = Slide.createDefaultSlide();
+
         newDefaultDeck.slides = new Hashtable<Integer, Slide>();
-        newDefaultDeck.slides.put(Integer.parseInt(newDefaultSlide.getUuid()), newDefaultSlide);
+
+        Slide newDefaultSlide1 = Slide.createDefaultPictureSlide();
+        newDefaultDeck.slides.put(Integer.parseInt(newDefaultSlide1.getUuid()), newDefaultSlide1);
+
+        Slide newDefaultSlide2 = Slide.createDefaultDashboardSlide();
+        newDefaultDeck.slides.put(Integer.parseInt(newDefaultSlide2.getUuid()), newDefaultSlide2);
 
         return newDefaultDeck;
     }

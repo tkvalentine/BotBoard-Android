@@ -18,18 +18,9 @@ public class Logo {
     }
 
     public static Logo createDefaultLogo(){
-/*
-        "logo" : {
-          "dimensions" : {
-            "height" : "",
-            "width" : ""
-          },
-          "url" : "https://s3.amazonaws.com/upboard/logo_ec_white2.png"
-        },
- */
         Logo newDefaultLogo = new Logo();
         newDefaultLogo.url = "https://s3.amazonaws.com/upboard/logo_ec_white2.png";
-        newDefaultLogo.dimensions = new Dimensions();
+        newDefaultLogo.dimensions = new Dimensions(128l, 128l);
 
         return newDefaultLogo;
     }

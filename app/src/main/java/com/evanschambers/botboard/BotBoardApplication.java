@@ -3,7 +3,6 @@ package com.evanschambers.botboard;
 import android.app.Application;
 
 import com.evanschambers.botboard.datamodels.BotBoardFirebaseRecord;
-import com.firebase.client.*;
 
 /**
  * Created by timvalentine on 3/3/16.
@@ -22,6 +21,8 @@ public class BotBoardApplication extends Application {
 
     public static boolean isInitialFirebaseAccess = true;
     public static BotBoardFirebaseRecord userRecord;
+
+    public static boolean userRecordIsDirty = false;
 
     @Override
     public void onCreate() {

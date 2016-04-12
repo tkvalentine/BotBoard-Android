@@ -1,5 +1,8 @@
 package com.evanschambers.botboard.datamodels;
 
+import java.util.Collection;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.UUID;
 
 /**
@@ -10,11 +13,14 @@ public class Slide {
     private static final String NODE_NAME = "slide";
     private String uuid;
 
+    private String title;
     private String type;
     private Boolean showFooter;
-    private Content content;
+    private Hashtable<Integer, Content> content = new Hashtable<Integer, Content>();
     private Timing timing;
     private Transitions transitions;
+    private String active;
+    private String logo;
 
     public Slide() {
     }
@@ -24,15 +30,36 @@ public class Slide {
         type = type1;
     }
 
-    public static Slide createDefaultSlide(){
+    public static Slide createDefaultPictureSlide() {
         Slide newDefaultSlide = new Slide();
         int i = (int)(UUID.randomUUID().getLeastSignificantBits());
         i = i < 0 ? i * -1 : i;
         newDefaultSlide.uuid = i + "";
 
-        newDefaultSlide.type = "logo";
-        newDefaultSlide.showFooter = false;
-        newDefaultSlide.content = Content.createDefaultContent();
+        newDefaultSlide.title = "Picture Slide";
+        newDefaultSlide.type = "picture";
+        newDefaultSlide.showFooter = true;
+
+        Content newDefaultContent = Content.createDefaultPictureContent();
+        newDefaultSlide.content.put(Integer.parseInt(newDefaultContent.getUuid()), newDefaultContent);
+        newDefaultSlide.timing = Timing.createDefaultTiming();
+        newDefaultSlide.transitions = Transitions.createDefaultTransition();
+
+        return newDefaultSlide;
+    }
+
+    public static Slide createDefaultDashboardSlide() {
+        Slide newDefaultSlide = new Slide();
+        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
+        i = i < 0 ? i * -1 : i;
+        newDefaultSlide.uuid = i + "";
+
+        newDefaultSlide.title = "Dashboard Slide";
+        newDefaultSlide.type = "dashboard";
+//        newDefaultSlide.showFooter = true;
+
+        Content newDefaultContent = Content.createDefaultDashboardContent();
+        newDefaultSlide.content.put(Integer.parseInt(newDefaultContent.getUuid()), newDefaultContent);
         newDefaultSlide.timing = Timing.createDefaultTiming();
         newDefaultSlide.transitions = Transitions.createDefaultTransition();
 
@@ -45,26 +72,53 @@ public class Slide {
     }
 
     public String toJSONString() {
-        String myJSONValue = getThisJSONValue();
+        String contentJSON = getContentJSONValue();
+        String myJSONValue = getThisJSONValue(contentJSON);
 
         return NODE_NAME + ":" + myJSONValue;
     }
 
     public String toJSONValueString() {
-        String myJSONValue = getThisJSONValue();
+        //without the node title - i.e. NODE_NAME + ":" + myJSONValue
+        String contentJSON = getContentJSONValue();
+        String myJSONValue = getThisJSONValue(contentJSON);
 
         return myJSONValue;
     }
 
-    private String getThisJSONValue(){
+    private String getContentJSONValue() {
+        String contentJSON = "[";
+
+        if (content != null && content.size() > 0) {
+            Collection<Content> theContent = content.values();
+            Iterator<Content> iterator = theContent.iterator();
+
+            while (iterator.hasNext()) {
+                Content aContent = iterator.next();
+                String aContentJSON = aContent.toJSONValueString();
+                contentJSON += aContentJSON;
+                if (iterator.hasNext()) {
+                    contentJSON += ", ";
+                }
+            }
+        }
+        contentJSON += "]";
+
+        return contentJSON;
+    }
+
+    private String getThisJSONValue(String theContentJSONValue) {
         String myJSONValue =
                 "{" +
                 "\"uuid\":\"" + uuid + "\", "+
+                "\"title\":\"" + title + "\", " +
                 "\"showFooter\":\"" + showFooter + "\", "+
                 "\"type\":\"" + type + "\", " +
-                "\"content\":" + this.content.toJSONValueString() + ", " +
                 "\"timing\":" + this.timing.toJSONValueString() + ", " +
                 "\"transitions\":" + this.transitions.toJSONValueString() +
+                "\"active\":\"" + active + "\", " +
+                "\"logo\":\"" + logo + "\", " +
+                "\"content\":" + theContentJSONValue + ", " +
                 "}";
 
         return myJSONValue;
@@ -76,6 +130,14 @@ public class Slide {
 
     public void setUuid(String uuid1) {
         this.uuid = uuid1;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String name1) {
+        this.title = name1;
     }
 
     public String getType() {
@@ -94,11 +156,11 @@ public class Slide {
         this.showFooter = showFooter1;
     }
 
-    public Content getContent() {
+    public Hashtable<Integer, Content> getContent() {
         return content;
     }
 
-    public void setContent(Content content) {
+    public void setContent(Hashtable<Integer, Content> content) {
         this.content = content;
     }
 
@@ -116,5 +178,21 @@ public class Slide {
 
     public void setTransitions(Transitions transitions) {
         this.transitions = transitions;
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active1) {
+        this.active = active1;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo1) {
+        this.logo = logo1;
     }
 }
