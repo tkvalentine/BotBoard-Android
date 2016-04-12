@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/mainScreenTitleTextViewSlidesDetailList"
-                    android:text="@string/main_screen_slide_detail_slide_edit_text"
+                    android:text="@string/main_screen_slide_content_slide_text"
                     android:gravity="center_vertical|left"
                     android:inputType="none"
                     android:textColor="@color/abc_primary_text_material_light"
@@ -82,90 +82,6 @@
                     android:adjustViewBounds="true"
                     android:layout_gravity="center" />
 
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/mainScreenDetailSlideGraphicContainer"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_weight="4"
-            android:paddingBottom="5dp"
-            android:layout_marginBottom="3dp"
-            android:background="@color/button_material_light"
-            android:layout_marginTop="3dp"
-            android:paddingTop="5dp">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_weight="9">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mainScreenDetailSlideGraphicImageView"
-                    android:src="@drawable/ec_logo"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="center"
-                    style="@style/AppTheme.Material.DefaultRectangleNoInsets"
-                    android:padding="5dp"
-                    android:adjustViewBounds="true"
-                    android:layout_margin="5dp"
-                    android:elevation="5dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mainScreenDetailSlideGraphicBarContainer"
-                android:layout_weight="1"
-                style="@style/AppTheme.Material.DefaultRectangleNoInsets"
-                android:elevation="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:backgroundTint="@color/material_grey_300"
-                android:backgroundTintMode="src_over">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/abc_text_size_medium_material"
-                    android:text="Slide Name"
-                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerSlideName"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/abc_text_size_medium_material"
-                    android:text="10:38AM"
-                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerTime"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/abc_text_size_medium_material"
-                    android:text="87F"
-                    android:id="@+id/mainScreenDetailSlideGraphicBarContainerTemperature"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -595,32 +511,29 @@
                     android:descendantFocusability="beforeDescendants">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/slideContentLabel"
                         android:text="@string/main_screen_slide_detail_slide_content_text"
                         android:inputType="none"
                         android:gravity="center_vertical|left"
                         android:layout_margin="5dp"
-                        android:layout_gravity="center_vertical|left"
-                        android:layout_weight="1" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4" />
 
-                    <ImageButton
-                        android:layout_width="@dimen/abc_action_button_min_width_material"
-                        android:layout_height="@dimen/abc_action_button_min_height_material"
-                        android:id="@+id/slideContextBuildImageButton"
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/abc_text_size_large_material"
+                        android:id="@+id/slideContextSpinner"
                         android:spinnerMode="dropdown"
                         android:entries="@array/slide_context_array"
                         android:focusableInTouchMode="false"
                         android:elevation="5dp"
-                        android:layout_gravity="center_vertical|right"
-                        android:focusable="false"
-                        android:src="@drawable/ic_build_black"
-                        style="@style/AppTheme.Material.ImageButton"
-                        android:adjustViewBounds="true"
-                        android:backgroundTint="#ffffffff"
-                        android:scaleType="fitCenter"
-                        android:layout_weight="0" />
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/primary_material_light"
+                        android:layout_weight=".6"
+                        android:layout_margin="5dp"
+                        android:focusable="false" />
 
                 </LinearLayout>
 

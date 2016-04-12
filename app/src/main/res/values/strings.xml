@@ -95,4 +95,7 @@
         <item>a placeholder</item>
     </string-array>
 
+    <!-- strings for main screen slide detail content subcontent-->
+    <string name="main_screen_slide_content_slide_text">Slide Content</string>
+
 </resources>

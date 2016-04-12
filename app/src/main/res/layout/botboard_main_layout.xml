@@ -141,6 +141,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/slidesDetailSubcontent" />
 
+            <include
+                layout="@layout/botboard_slides_detail_content_subcontent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/slidesDetailContentSubcontent" />
+
         </ViewAnimator>
 
         <LinearLayout
