@@ -55,6 +55,9 @@
     <string name="main_screen_slide_detail_slide_show_footer_text">Footer:</string>
     <string name="main_screen_slide_detail_slide_content_text">Content:</string>
 
+    <!-- strings for create deck dialog-->
+    <string name="deck_create_dialog_active_text">Active:</string>
+
     <string-array name="slide_type_array">
         <item>logo</item>
         <item>picture</item>

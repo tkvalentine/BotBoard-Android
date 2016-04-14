@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:showIn="@layout/botboard_main_layout">
 
-    <LinearLayout
+    <com.evanschambers.botboard.subcomponents.ECLinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_material_light"
         android:layout_weight="1"
-        android:id="@+id/mainScreenDecksSubcontentContainer">
+        android:id="@+id/mainScreenDecksSubcontentContainer"
+        android:tag="DECK_SUBPANEL">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -101,5 +102,5 @@
             android:fastScrollAlwaysVisible="false"
             android:backgroundTint="@color/material_gray_300_alpha88"
             android:backgroundTintMode="src_atop" />
-    </LinearLayout>
+    </com.evanschambers.botboard.subcomponents.ECLinearLayout>
 </merge>

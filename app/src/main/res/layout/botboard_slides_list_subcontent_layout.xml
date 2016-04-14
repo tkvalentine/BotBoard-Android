@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--
-        tools:showIn="@layout/botboard_main_layout">
-    -->
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/botboard_main_layout">
 
-    <LinearLayout
+    <com.evanschambers.botboard.subcomponents.ECLinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_material_light"
         android:layout_weight="1"
-        android:id="@+id/mainScreenSlidesSubcontentContainer">
+        android:id="@+id/mainScreenSlidesSubcontentContainer"
+        android:tag="SLIDES_SUBPANEL">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -179,5 +178,5 @@
             android:cacheColorHint="@color/cacheColorHint"
             android:backgroundTintMode="src_atop"
             android:backgroundTint="@color/material_gray_300_alpha88" />
-    </LinearLayout>
+    </com.evanschambers.botboard.subcomponents.ECLinearLayout>
 </merge>

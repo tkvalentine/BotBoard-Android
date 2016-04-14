@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:id="@+id/deck_create_dialog_container"
+    android:background="@color/background_material_light"
+    android:clickable="false"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createDeckActiveLabel"
+        android:text="@string/deck_create_dialog_active_text"
+        android:inputType="none"
+        android:gravity="center_vertical|left"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:layout_rowWeight="1" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/abc_text_size_large_material"
+        android:id="@+id/createDeckActiveSpinner"
+        android:spinnerMode="dropdown"
+        android:entries="@array/slide_active_array"
+        android:focusableInTouchMode="false"
+        android:elevation="5dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/primary_material_light"
+        android:layout_margin="5dp"
+        android:focusable="false"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:layout_rowWeight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideTitleLabel"
+        android:text="Title:"
+        android:inputType="none"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/abc_text_size_large_material"
+        android:id="@+id/slideTitleEditText"
+        android:elevation="5dp"
+        android:text="Slide Title"
+        android:editable="true"
+        android:background="@color/primary_material_light"
+        android:textColor="@color/primary_text_default_material_light"
+        android:enabled="true"
+        android:inputType="text"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="@dimen/abc_text_size_body_1_material"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_column="1"
+        android:layout_row="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideDescriptionLabel"
+        android:text="Description:"
+        android:inputType="none"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/abc_text_size_large_material"
+        android:id="@+id/slideDescriptionEditText"
+        android:elevation="5dp"
+        android:text="Slide Title"
+        android:editable="true"
+        android:background="@color/primary_material_light"
+        android:textColor="@color/primary_text_default_material_light"
+        android:enabled="true"
+        android:inputType="text"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="@dimen/abc_text_size_body_1_material"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_column="1"
+        android:layout_row="2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideThumbnailLabel"
+        android:text="Thumbnail:"
+        android:inputType="none"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/abc_text_size_large_material"
+        android:id="@+id/slideThumbnailEditText"
+        android:elevation="5dp"
+        android:text="Slide Title"
+        android:editable="true"
+        android:background="@color/primary_material_light"
+        android:textColor="@color/primary_text_default_material_light"
+        android:enabled="true"
+        android:inputType="text"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="@dimen/abc_text_size_body_1_material"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_column="1"
+        android:layout_row="3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideCreatedDateLabel"
+        android:text="Created date:"
+        android:inputType="none"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideCreatedEditText"
+        android:layout_row="4"
+        android:layout_column="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideUpdatedDateLabel"
+        android:text="Updated date:"
+        android:inputType="none"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_column="0"
+        android:layout_row="5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:id="@+id/slideUpdatedEditText"
+        android:layout_row="5"
+        android:layout_column="1"
+        android:editable="true" />
+
+</GridLayout>
