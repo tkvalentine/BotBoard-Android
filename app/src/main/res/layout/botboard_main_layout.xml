@@ -130,6 +130,12 @@
                 android:id="@+id/decksSubcontent" />
 
             <include
+                layout="@layout/botboard_deck_detail_subcontent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deckDetailSubcontent" />
+
+            <include
                 layout="@layout/botboard_slides_list_subcontent_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

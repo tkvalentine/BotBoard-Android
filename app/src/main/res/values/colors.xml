@@ -13,4 +13,10 @@
     <color name="material_gray_400">#ffa5a5a5</color>
     <color name="material_gray_300_alpha88">#dde0e0e0</color>
     <color name="scrollview_fading_edge_light_orange">#ffffd291</color>
+
+    <!-- for dialogs -->
+    <color name="alert_dialog_white">#ffffffff</color>
+    <color name="alert_dialog_orange">#ffffd291</color>
+    <color name="alert_dialog_black">#ff111111</color>
+
 </resources>

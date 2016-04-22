@@ -6,51 +6,53 @@
     android:id="@+id/deckTableMainContainer"
     android:animationCache="false"
     android:backgroundTint="@color/button_material_light">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="@dimen/desk_table_item_image_container_size"
-    android:layout_height="wrap_content"
-    android:id="@+id/deckTableItemContainer"
-    android:clickable="false"
-    android:longClickable="true"
-    android:contextClickable="false"
-    android:elevation="5dp"
-    style="@style/AppTheme.Material.DefaultRectangle"
-    android:backgroundTint="@color/button_material_light"
-    android:animationCache="false">
 
-    <ImageButton
-        android:layout_width="@dimen/desk_table_item_image_size"
-        android:layout_height="@dimen/desk_table_item_image_size"
-        android:id="@+id/deckTableItemImageButton"
-        android:src="@drawable/ec_logo"
-        android:scaleType="fitCenter"
-        android:clickable="true"
-        android:elevation="5dp"
-        android:longClickable="false"
-        android:adjustViewBounds="false"
-        style="@style/AppTheme.Material.ImageButton"
-        android:cropToPadding="false"
-        android:contextClickable="false"
-        android:duplicateParentState="false"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/material_gray_450"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp" />
-
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="@dimen/desk_table_item_image_container_size"
         android:layout_height="wrap_content"
-        android:text="Default Deck"
-        android:id="@+id/deckTableItemNameTextView"
-        android:textSize="@dimen/abc_text_size_small_material"
-        android:textColor="@color/abc_primary_text_material_light"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:longClickable="false"
-        android:clickable="false"
+        android:id="@+id/deckTableItemContainer"
+        android:clickable="true"
+        android:longClickable="true"
         android:contextClickable="false"
-        android:duplicateParentState="true"
-        android:backgroundTint="@color/button_material_light" />
-</LinearLayout>
+        android:elevation="5dp"
+        style="@style/AppTheme.Material.ImageButton"
+        android:backgroundTint="@color/button_material_light"
+        android:animationCache="false">
+
+        <ImageButton
+            android:layout_width="@dimen/desk_table_item_image_size"
+            android:layout_height="@dimen/desk_table_item_image_size"
+            android:id="@+id/deckTableItemImageButton"
+            android:src="@drawable/ec_logo"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:longClickable="false"
+            android:adjustViewBounds="false"
+            style="@style/AppTheme.Material.ImageButton"
+            android:cropToPadding="false"
+            android:contextClickable="false"
+            android:duplicateParentState="false"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/material_gray_450"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default Deck"
+            android:id="@+id/deckTableItemNameTextView"
+            android:textSize="@dimen/abc_text_size_small_material"
+            android:textColor="@color/abc_primary_text_material_light"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:longClickable="false"
+            android:clickable="false"
+            android:contextClickable="false"
+            android:duplicateParentState="true"
+            android:backgroundTint="@color/button_material_light"
+            android:lines="2" />
+    </LinearLayout>
 </LinearLayout>

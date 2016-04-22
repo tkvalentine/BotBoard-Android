@@ -3,4 +3,5 @@
     <integer name="TAG_POSITION_INDEX">0</integer>
     <integer name="TAG_SLIDE_NAME_INDEX">1</integer>
     <integer name="TAG_SLIDE_OBJECT">2</integer>
+    <integer name="REQUEST_GET_ACCOUNTS_PERMISSIONS">513</integer>
 </resources>

@@ -275,7 +275,6 @@
                         android:id="@+id/slideTitleEditText"
                         android:elevation="5dp"
                         android:text="Slide Title"
-                        android:editable="true"
                         android:background="@color/primary_material_light"
                         android:textColor="@color/primary_text_default_material_light"
                         android:enabled="true"
@@ -320,7 +319,6 @@
                         android:id="@+id/slideDurationEditText"
                         android:elevation="5dp"
                         android:text="3.2s"
-                        android:editable="true"
                         android:background="@color/primary_material_light"
                         android:textColor="@color/primary_text_default_material_light"
                         android:enabled="true"
@@ -365,7 +363,6 @@
                         android:id="@+id/slideTransistionDurationEditText"
                         android:elevation="5dp"
                         android:text="3.2s"
-                        android:editable="true"
                         android:background="@color/primary_material_light"
                         android:textColor="@color/primary_text_default_material_light"
                         android:enabled="true"
@@ -621,6 +618,48 @@
                         android:backgroundTint="#ffffffff"
                         android:scaleType="fitCenter"
                         android:layout_weight="0" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/slideActionButtonItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createSlideCancelButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:text="Cancel"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight="1"
+                        android:backgroundTintMode="src_atop" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createSlideSaveButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:text="Save"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight="1"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
 

@@ -133,5 +133,6 @@
     <string name="slide_detail_content_uptimetotalminutes_text">Total minutes:</string>
     <string name="slide_detail_content_layout_text">Layout:</string>
     <string name="slide_detail_content_snapshot_text">Snapshot:</string>
+    <string name="main_screen_deck_edit_titlebar_title">Edit Deck</string>
 
 </resources>

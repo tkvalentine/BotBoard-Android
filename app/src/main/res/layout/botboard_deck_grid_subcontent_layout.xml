@@ -94,7 +94,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:columnWidth="@dimen/desk_table_item_image_container_size"
-            android:contextClickable="true"
+            android:contextClickable="false"
             android:clickable="false"
             android:background="@drawable/numbers_background"
             android:layout_marginTop="3dp"

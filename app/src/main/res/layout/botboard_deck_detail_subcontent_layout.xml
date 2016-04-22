@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/botboard_main_layout">
+
+    <com.evanschambers.botboard.subcomponents.ECLinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_material_light"
+        android:layout_weight="1"
+        android:id="@+id/mainScreenDeckDetailSubcontentContainer"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:tag="DECK_DETAIL_SUBPANEL">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_gray_400"
+            android:id="@+id/mainScreenTopBarContainerDeckDetail"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:showDividers="none">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/mainScreenDetailDeckTitleContainer"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainScreenTitleTextViewDeckDetailList"
+                    android:text="@string/main_screen_deck_edit_titlebar_title"
+                    android:gravity="center_vertical|left"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:singleLine="false"
+                    android:textSize="@dimen/abc_text_size_medium_material"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainScreenDetailDeckDeleteContainer"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mainScreenDeleteDeckDetailTextEdit"
+                    android:text="@string/main_screen_delete_slide_text"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:elegantTextHeight="false"
+                    android:textSize="@dimen/abc_text_size_medium_material"
+                    android:gravity="center_vertical|right"
+                    android:layout_gravity="center_vertical|right" />
+
+                <ImageButton
+                    android:layout_width="@dimen/abc_action_button_min_width_material"
+                    android:layout_height="@dimen/abc_action_button_min_height_material"
+                    android:id="@+id/mainScreenDeleteDeckDetailButton"
+                    android:src="@drawable/ic_delete_black"
+                    android:scaleType="fitCenter"
+                    android:elevation="5dp"
+                    android:backgroundTint="#ffffff"
+                    android:layout_marginLeft="5dp"
+                    style="@style/AppTheme.Material.ImageButton"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#ffffffff" />
+
+        </LinearLayout>
+
+        <com.evanschambers.botboard.subcomponents.ECScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/mainScreenDetailDeckDataScrollView"
+            android:background="@drawable/numbers_background"
+            android:backgroundTint="@color/material_gray_300_alpha88"
+            android:backgroundTintMode="src_atop"
+            android:layout_weight="3"
+            android:fillViewport="true"
+            android:scrollIndicators="bottom|top"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            android:scrollbarDefaultDelayBeforeFade="250"
+            android:scrollbarFadeDuration="500"
+            android:scrollbarSize="7dp"
+            android:scrollbarStyle="insideInset"
+            android:fadingEdge="vertical"
+            android:requiresFadingEdge="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deckDetaiScrollViewlListItemContainer"
+                android:backgroundTint="@color/button_material_light"
+                android:elevation="5dp"
+                android:addStatesFromChildren="false"
+                android:paddingLeft="5dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:descendantFocusability="beforeDescendants"
+                android:paddingTop="3dp">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckActivItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckActiveLabel"
+                        android:text="@string/deck_create_dialog_active_text"
+                        android:layout_marginLeft="5dp" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckActiveSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_active_array"
+                        android:elevation="5dp"
+                        style="@android:style/Widget.Spinner"
+                        android:backgroundTint="#88ffffff"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="fill_horizontal"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckLogoItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckLogoLabel"
+                        android:text="@string/main_screen_slide_detail_slide_logo_text"
+                        android:inputType="none"
+                        android:gravity="center_vertical|left"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckLogoSpinner"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/slide_logo_array"
+                        android:focusableInTouchMode="false"
+                        android:elevation="5dp"
+                        android:focusable="false"
+                        android:gravity="fill_horizontal"
+                        android:layout_weight="1"
+                        style="@android:style/Widget.Spinner"
+                        android:backgroundTint="#88ffffff"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckTitleItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckTitleLabel"
+                        android:text="Title:"
+                        android:inputType="none"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4"
+                        android:layout_marginLeft="5dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckTitleEditText"
+                        android:elevation="5dp"
+                        android:text="Slide Title"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text|textMultiLine"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="fill_horizontal"
+                        android:background="@color/background_material_light"
+                        android:layout_weight=".6"
+                        android:lines="2"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckDescriptionItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckDescriptionLabel"
+                        android:text="Description:"
+                        android:inputType="none"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4"
+                        android:layout_marginLeft="5dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckDescriptionEditText"
+                        android:elevation="5dp"
+                        android:text="Slide Title"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:inputType="text|textMultiLine"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="fill_horizontal"
+                        android:background="@color/background_material_light"
+                        android:layout_weight=".6"
+                        android:lines="2"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckThumbnailItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckThumbnailLabel"
+                        android:text="Thumbnail:"
+                        android:inputType="none"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4"
+                        android:layout_marginLeft="5dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckThumbnailEditText"
+                        android:elevation="5dp"
+                        android:text="Slide Title"
+                        android:textColor="@color/primary_text_default_material_light"
+                        android:enabled="true"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/abc_text_size_body_1_material"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="fill_horizontal"
+                        android:background="@color/background_material_light"
+                        android:layout_weight=".6"
+                        android:lines="2"
+                        android:inputType="textMultiLine|textUri"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckCreatedItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckCreatedLabel"
+                        android:text="Created date:"
+                        android:inputType="none"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4"
+                        android:layout_marginLeft="5dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckCreatedButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight=".6"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckUpdatedItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckUpdatedLabel"
+                        android:text="Updated date:"
+                        android:inputType="none"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".4"
+                        android:layout_marginLeft="5dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckUpdatedButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight=".6"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deckActionButtonItemContainer"
+                    style="@style/AppTheme.Material.DefaultRectangle"
+                    android:backgroundTint="@color/button_material_light"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="false"
+                    android:descendantFocusability="beforeDescendants">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckCancelButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:text="Cancel"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight="1"
+                        android:backgroundTintMode="src_atop" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/createDeckSaveButton"
+                        style="@android:style/Widget.Button"
+                        android:clickable="true"
+                        android:elevation="5dp"
+                        android:enabled="true"
+                        android:text="Save"
+                        android:backgroundTint="#88ffffff"
+                        android:layout_weight="1"
+                        android:backgroundTintMode="src_atop"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.evanschambers.botboard.subcomponents.ECScrollView>
+
+    </com.evanschambers.botboard.subcomponents.ECLinearLayout>
+</merge>
