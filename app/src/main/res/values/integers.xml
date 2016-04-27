@@ -3,5 +3,10 @@
     <integer name="TAG_POSITION_INDEX">0</integer>
     <integer name="TAG_SLIDE_NAME_INDEX">1</integer>
     <integer name="TAG_SLIDE_OBJECT">2</integer>
+    <integer name="TAG_SLIDE_CONTENT_INITIATOR">3</integer>
+    <integer name="TAG_SLIDE_EDIT_DETAIL_CONTENT_BUTTON_">129</integer>
+    <integer name="TAG_SLIDE_LIST_ITEM_CONTAINER_GOTO_EDIT_BUTTON">130</integer>
+    <integer name="TAG_SLIDE_LIST_ITEM_BUTTON_GOTO_CONTENT">131</integer>
+
     <integer name="REQUEST_GET_ACCOUNTS_PERMISSIONS">513</integer>
 </resources>

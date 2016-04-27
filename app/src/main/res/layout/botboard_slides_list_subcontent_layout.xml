@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:showIn="@layout/botboard_main_layout">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        tools:showIn="@layout/botboard_main_layout">
+    -->
 
     <com.evanschambers.botboard.subcomponents.ECLinearLayout
         android:orientation="vertical"
@@ -138,7 +140,8 @@
                     android:layout_marginLeft="5dp"
                     style="@style/AppTheme.Material.ImageButton"
                     android:adjustViewBounds="true"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:tag="SLIDE_LIST_CREATE_SLIDE_BUTTON" />
 
             </LinearLayout>
 
