@@ -3,16 +3,18 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class UpTime {
+public class UpTime extends BaseDataModel {
     private static final String TAG = UpTime.class.getSimpleName();
     private static final String NODE_NAME = "uptime";
     private Long downMinutes;
     private Long totalMinutes;
 
     public UpTime() {
+        super();
     }
 
     public UpTime(Long ingestCount1, Long errorCount1) {
+        super();
         totalMinutes = ingestCount1;
         downMinutes = errorCount1;
     }
@@ -45,9 +47,9 @@ public class UpTime {
     private String getThisJSONValue() {
         String myJSONValue =
                 "{" +
-                        "\"totalMinutes\":" + totalMinutes + ", " +
-                        "\"downMinutes:" + downMinutes +
-                        "}";
+                "\"totalMinutes\":" + totalMinutes + ", " +
+                "\"downMinutes\":" + downMinutes +
+                "}";
 
         return myJSONValue;
     }

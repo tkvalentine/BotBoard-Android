@@ -3,15 +3,13 @@ package com.evanschambers.botboard.datamodels;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.UUID;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Content {
+public class Content extends BaseDataModel {
     private static final String TAG = Content.class.getSimpleName();
     private static final String NODE_NAME = "content";
-    private String uuid;
     private String defaultMessage;
     private String message;
     private String from;
@@ -30,13 +28,19 @@ public class Content {
     private String imageUrlCover;
     private String name;
     private String hireYear;
+    private String status;
+    private Today today;
+    private UpTime uptime;
+    private Yesterday yesterday;
     private Hashtable<Integer, SnapShot> snapshot = new Hashtable<Integer, SnapShot>();
     private Hashtable<Integer, Layout> layout = new Hashtable<Integer, Layout>();
 
     public Content() {
+        super();
     }
 
     public Content(String message1, String defaultMessage1) {
+        super();
         message = message1;
         defaultMessage = defaultMessage1;
     }
@@ -44,9 +48,6 @@ public class Content {
     public static Content createDefaultPictureContent() {
         //create content for default slide type picture
         Content newDefaultContent = new Content();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultContent.uuid = i + "";
         newDefaultContent.setCaption("Picture Content");
         newDefaultContent.setImageUrl("https://s3.amazonaws.com/upboard/Photos/photo-MEA-Awards.jpg");
 
@@ -56,9 +57,6 @@ public class Content {
     public static Content createDefaultDashboardContent() {
         //create content for default slide type picture
         Content newDefaultContent = new Content();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultContent.uuid = i + "";
         newDefaultContent.setEvent("ingestEvent");
 
         Layout layout = Layout.createDefaultDashboardLayout();
@@ -66,6 +64,17 @@ public class Content {
 
         SnapShot snapshot = SnapShot.createDefaultDashboardSnapshot();
         newDefaultContent.snapshot.put(Integer.parseInt(snapshot.getUuid()), snapshot);
+
+        return newDefaultContent;
+    }
+
+    public static Content createDefaultSnapshotContent() {
+        //create content for default slide type picture
+        Content newDefaultContent = new Content();
+        newDefaultContent.status = "running";
+        newDefaultContent.today = Today.createDefaultToday();
+        newDefaultContent.uptime = UpTime.createDefaultUpTime();
+        newDefaultContent.yesterday = Yesterday.createDefaultYesterday();
 
         return newDefaultContent;
     }
@@ -156,19 +165,15 @@ public class Content {
                 "\"imageUrlCover\":" + imageUrlCover + "\", "+
                 "\"name\":" + name + "\", "+
                 "\"hireYear\":" + hireYear + "\", "+
+                "\"status\":\"" + status + "\", " +
+                "\"today\":\"" + (today == null ? null : today.toJSONValueString()) + "\", " +
+                "\"uptime\":\"" + (uptime == null ? null : uptime.toJSONValueString()) + "\", " +
+                "\"yesterday\":\"" + (yesterday == null ? null : yesterday.toJSONValueString()) +
                 "\"layout\":" + theLayoutJSONValue + "\", "+
                 "\"snapshot\":" + theSnapshotJSONValue +
                 "}";
 
         return myJSONValue;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
     }
 
     public String getDefaultMessage() {
@@ -313,6 +318,38 @@ public class Content {
 
     public void setHireYear(String hireYear1) {
         this.hireYear = hireYear1;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String source1) {
+        this.status = source1;
+    }
+
+    public Today getToday() {
+        return today;
+    }
+
+    public void setToday(Today today1) {
+        this.today = today1;
+    }
+
+    public UpTime getUptime() {
+        return uptime;
+    }
+
+    public void setUptime(UpTime uptime1) {
+        this.uptime = uptime1;
+    }
+
+    public Yesterday getYesterday() {
+        return yesterday;
+    }
+
+    public void setYesterday(Yesterday yesterday1) {
+        this.yesterday = yesterday1;
     }
 
     public Hashtable<Integer, Layout> getLayout() {

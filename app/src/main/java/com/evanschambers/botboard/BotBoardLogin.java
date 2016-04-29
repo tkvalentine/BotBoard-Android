@@ -4,10 +4,13 @@ package com.evanschambers.botboard;
  * Created by timvalentine on 3/3/16.
  */
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -32,8 +35,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
 import java.io.IOException;
-
-//import com.google.android.gms.auth.api.Auth;
 
 /**
  * This class implements Google+ Sign-in. There's not much Firebase specific stuff here.
@@ -108,10 +109,10 @@ public class BotBoardLogin extends Activity  implements
                         Log.i(TAG, ">>>onCreate() : LOGIN BUTTON CLICKED : signin good : get auth token and login");
                         getGoogleOAuthTokenAndLogin();
                     } else {
-                    /* connect API now */
+                        /* connect API now */
                         Log.d(TAG, ">>>onCreate() : LOGIN BUTTON CLICKED : Trying to connect to Google API");
                         mGoogleApiClient.connect();
-                }
+                    }
                 }
             }
         });
@@ -123,7 +124,7 @@ public class BotBoardLogin extends Activity  implements
                 .addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
                 .addScope(Plus.SCOPE_PLUS_PROFILE)
-                        //.addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                //.addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
 
@@ -147,11 +148,40 @@ public class BotBoardLogin extends Activity  implements
     @Override
     public void onConnected(Bundle bundle) {
         Log.d(TAG, ">>>onConnected() : ENTERED");
-        /* Connected with Google API, use this to authenticate with Firebase */
-        Log.i(TAG, ">>>onConnected() : Login Connected : get auth token and login");
-        getGoogleOAuthTokenAndLogin();
+
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.GET_ACCOUNTS);
+
+            if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {Manifest.permission.GET_ACCOUNTS}, R.integer.REQUEST_GET_ACCOUNTS_PERMISSIONS);
+                return;
+            }
+            else{
+                /* Connected with Google API, use this to authenticate with Firebase */
+                Log.i(TAG, ">>>onConnected() : Login Connected : get auth token and login");
+                getGoogleOAuthTokenAndLogin();
+            }
+        }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case R.integer.REQUEST_GET_ACCOUNTS_PERMISSIONS:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    /* Connected with Google API, use this to authenticate with Firebase */
+                    Log.i(TAG, ">>>onRequestPermissionsResult() : Login Connected : get auth token and login");
+                    getGoogleOAuthTokenAndLogin();
+                    Toast.makeText(this.getApplicationContext(), "GET_ACCOUNTS Authorized", Toast.LENGTH_SHORT);
+                } else {
+                    // Permission Denied
+                    Toast.makeText(this.getApplicationContext(), "GET_ACCOUNTS Denied", Toast.LENGTH_SHORT);
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
     @Override
     public void onConnectionSuspended(int i) {
         Log.i(TAG, ">>>onConnectionSuspended() : ENTERED : Login Suspended");
@@ -304,7 +334,7 @@ public class BotBoardLogin extends Activity  implements
         BotBoardApplication.myFirebaseRef = new com.firebase.client.Firebase("https://boiling-heat-9947.firebaseio.com/");
 
         // Process authentication
-        Bundle extras = getIntent().getExtras();
+        //Bundle extras = getIntent().getExtras();
         if (token != null && !token.isEmpty()) {
             Log.i(TAG, ">>>onCreate() : get auth token from extras");
             myAuthToken = token;
@@ -372,12 +402,14 @@ public class BotBoardLogin extends Activity  implements
                             Object snapshotValueObject = snapshot.getValue();
 
                             //THIS WILL HAPPEN AFTER THE FIRST TIME THROUGH WITH NO USER DATA ON FIREBASE
+                            //OR THE FIRST TIME THROUGH IF THERE IS DATA
                             if (snapshotValueObject != null && BotBoardApplication.isInitialFirebaseAccess) {
                                 //if this is app startup and the response from the query for myUserDataFirebaseQuery
                                 //then we need to load the user's record from Firebase
                                 BotBoardApplication.userRecord = snapshot.getValue(BotBoardFirebaseRecord.class);
 
                                 BotBoardApplication.isInitialFirebaseAccess = false;
+                                BotBoardApplication.userRecordIsDirty = false;
 
                                 startMainAppActivity();
                             }
@@ -390,14 +422,16 @@ public class BotBoardLogin extends Activity  implements
                                                 BotBoardApplication.userName,
                                                 BotBoardApplication.userEmail,
                                                 BotBoardApplication.userAuthProvider);
+                                BotBoardApplication.userRecordIsDirty = true;
 
-                                String newUserJSONValuesString = BotBoardApplication.userRecord.toJSONValueString();
+                                //String newUserJSONValuesString = BotBoardApplication.userRecord.toJSONValueString();
                                 BotBoardApplication.myFirebaseRef.child("users")
                                         .child(BotBoardApplication.userId)
                                         .setValue(BotBoardApplication.userRecord, new Firebase.CompletionListener() {
                                             @Override
                                             public void onComplete(FirebaseError firebaseError, Firebase firebase) {
                                                 if (firebaseError != null) {
+                                                    BotBoardApplication.userRecordIsDirty = false;
                                                     Log.w(TAG, "Update failed! " + firebaseError.getMessage());
                                                 }
                                             }
@@ -405,9 +439,13 @@ public class BotBoardLogin extends Activity  implements
 
                                 BotBoardApplication.isInitialFirebaseAccess = false;
                             }
-                            //WE HAVE EITHER CREATED A DEFAULT USER RECORD this is the default record write pass
+                            //WE HAVE EITHER CREATED A DEFAULT USER RECORD this is a record write result pass
                             else {
-                                startMainAppActivity();
+                                BotBoardApplication.userRecordIsDirty = false;
+                                if (BotBoardApplication.isInitialFirebaseAccess) {
+                                    BotBoardApplication.isInitialFirebaseAccess = false;
+                                    startMainAppActivity();
+                                }
                             }
                         }
 
@@ -416,41 +454,6 @@ public class BotBoardLogin extends Activity  implements
                             Log.v(TAG, ">>>getFirebaseConnectionAndUserData().onAuthenticated() : myUserDataFirebaseQuery.onCancelled() : error =" + firebaseError.getMessage());
                         }
                     });
-
-/*
-                    // create the firebase for the RESTFUL access
-                    try {
-                        Log.v(TAG, ">>>onCreate() : AuthResultHandler() : get a firebase restful object");
-                        //net.thegreshams.firebase4j.service.Firebase firebaseRestful = new net.thegreshams.firebase4j.service.Firebase("https://boiling-heat-9947.firebaseio.com", myAuthToken);
-                        //net.thegreshams.firebase4j.service.Firebase firebaseRestful = new net.thegreshams.firebase4j.service.Firebase("https://boiling-heat-9947.firebaseio.com", uid);
-                        //net.thegreshams.firebase4j.service.Firebase firebaseRestful = new net.thegreshams.firebase4j.service.Firebase("https://boiling-heat-9947.firebaseio.com", BotBoardApplication.userToken);
-                        net.thegreshams.firebase4j.service.Firebase firebaseRestful = new net.thegreshams.firebase4j.service.Firebase("https://boiling-heat-9947.firebaseio.com", BotBoardApplication.appSecret);
-
-//                        String encodedUrl = URLEncoder.encode("https://boiling-heat-9947.firebaseio.com", "UTF-8");
-//                        String encodedSecret = URLEncoder.encode(BotBoardApplication.appSecret, "UTF-8");
-//                        net.thegreshams.firebase4j.service.Firebase firebaseRestful = new net.thegreshams.firebase4j.service.Firebase(encodedUrl, encodedSecret);
-                        Log.v(TAG, ">>>onCreate() : AuthResultHandler() : call GET on firebase restful object");
-                        // "GET" () - the root data object - i.e. all users and data
-                        //FirebaseResponse response = firebaseRestful.get();
-                        FirebaseResponse response = firebaseRestful.get("/users");
-//                        String encodedPath = URLEncoder.encode("/users", "UTF-8");
-//                        FirebaseResponse response = firebaseRestful.get(encodedPath);
-                        Log.v(TAG, ">>>onCreate() : AuthResultHandler() : response="+response);
-
-                        String guts = response.getRawBody();
-                        String gutsFormatted = null;
-                        try {
-                            gutsFormatted = (new JSONObject(guts)).toString(4);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        Log.v(TAG, ">>>onCreate() : AuthResultHandler() : restful result = " + gutsFormatted);
-                    }catch(FirebaseException e){
-                        System.out.println("\n\nResult of GET (FirebaseException):\n" + e.getMessage());
-                    }catch(java.io.UnsupportedEncodingException e){
-                        System.out.println("\n\nResult of GET (UnsupportedEncodingException):\n" + e.getMessage());
-                    }
-*/
                 }
 
                 Toast.makeText(getApplicationContext(), "Authentication successful.",
@@ -486,6 +489,7 @@ public class BotBoardLogin extends Activity  implements
         }
         myUserDataFirebaseQuery = null;
 
+        BotBoardApplication.userRecordIsDirty = false;
         this.finish();
     }
 

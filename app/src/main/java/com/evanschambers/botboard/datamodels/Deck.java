@@ -3,16 +3,14 @@ package com.evanschambers.botboard.datamodels;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.UUID;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Deck {
+public class Deck extends BaseDataModel {
 
     private static final String TAG = Deck.class.getSimpleName();
     private static final String NODE_NAME = "deck";
-    private String uuid;
 
     private Boolean active;
     private String description;
@@ -22,17 +20,16 @@ public class Deck {
 
     private Long createdDate;
     private Long updatedDate;
-    private Logo logo;
+    private String logo;
+//    private Logo logo;
     private Hashtable<Integer, Slide> slides = new Hashtable<Integer, Slide>();
 
     public Deck() {
+        super();
     }
 
     public static Deck createDefaultDeck(){
         Deck newDefaultDeck = new Deck();
-        int i = (int)(UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultDeck.uuid = i + "";
 
         newDefaultDeck.active = false;
         newDefaultDeck.description = "Alternative company slide deck for Evans and Chambers";
@@ -42,7 +39,8 @@ public class Deck {
 
         newDefaultDeck.createdDate = System.currentTimeMillis();
         newDefaultDeck.updatedDate = newDefaultDeck.createdDate;
-        newDefaultDeck.logo = Logo.createDefaultLogo();
+//        newDefaultDeck.logo = Logo.createDefaultLogo();
+        newDefaultDeck.logo = "settings";
 
         newDefaultDeck.slides = new Hashtable<Integer, Slide>();
 
@@ -106,19 +104,12 @@ public class Deck {
             "\"title\":\"" + title + "\", "+
             "\"updatedDate\":" + updatedDate + ", "+
             "\"createdDate\":" + createdDate + ", "+
-            "\"logo\":" + logo.toJSONValueString() + ", "+
+//            "\"logo\":" + logo.toJSONValueString() + ", "+
+            "\"logo\":" + logo + ", "+
             "\"slides\":" + theSlidesJSONValue +
             "}";
 
         return myJSONValue;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
     }
 
     public String getDescription() {
@@ -168,12 +159,20 @@ public class Deck {
     public void setUpdatedDate(Long updatedDate) {
         this.updatedDate = updatedDate;
     }
+//
+//    public Logo getLogo() {
+//        return logo;
+//    }
+//
+//    public void setLogo(Logo logo1) {
+//        this.logo = logo1;
+//    }
 
-    public Logo getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(Logo logo1) {
+    public void setLogo(String logo1) {
         this.logo = logo1;
     }
 

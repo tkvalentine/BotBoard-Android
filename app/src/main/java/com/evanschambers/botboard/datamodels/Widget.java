@@ -3,15 +3,13 @@ package com.evanschambers.botboard.datamodels;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.UUID;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Widget {
+public class Widget extends BaseDataModel {
     private static final String TAG = Widget.class.getSimpleName();
     private static final String NODE_NAME = "widget";
-    private String uuid;
 
     private String header;
     private String type;
@@ -26,13 +24,11 @@ public class Widget {
     private Hashtable<Integer, Widget> widgets = new Hashtable<Integer, Widget>();
 
     public Widget() {
+        super();
     }
 
     public static Widget createDefaultWidget() {
         Widget newDefaultWidget = new Widget();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultWidget.uuid = i + "";
 
         newDefaultWidget.header = "Default Widget";
 
@@ -45,9 +41,6 @@ public class Widget {
 
     public static Widget createDefaultDashboardWidget() {
         Widget newDefaultWidget = new Widget();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultWidget.uuid = i + "";
 
         newDefaultWidget.header = "Documents Ingested / Source";
 
@@ -119,14 +112,6 @@ public class Widget {
                         "}";
 
         return myJSONValue;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
     }
 
     public String getHeader() {

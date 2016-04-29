@@ -1,47 +1,35 @@
 package com.evanschambers.botboard.datamodels;
 
-import java.util.UUID;
+import java.util.Collection;
+import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class SnapShot {
+public class SnapShot extends BaseDataModel {
     private static final String TAG = SnapShot.class.getSimpleName();
     private static final String NODE_NAME = "snapshot";
-    private String uuid;
-    private String status;
-    private Today today;
-    private UpTime uptime;
-    private Yesterday yesterday;
+    private Hashtable<Integer, Content> content = new Hashtable<Integer, Content>();
 
     public SnapShot() {
+        super();
     }
 
     public static SnapShot createDefaultSnapshot() {
         SnapShot newDefaultSnapshot = new SnapShot();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultSnapshot.uuid = i + "";
 
-        Content newDefaultContent = Content.createDefaultDashboardContent();
-        newDefaultSnapshot.status = "running";
-        newDefaultSnapshot.today = Today.createDefaultToday();
-        newDefaultSnapshot.uptime = UpTime.createDefaultUpTime();
-        newDefaultSnapshot.yesterday = Yesterday.createDefaultYesterday();
+        Content newDefaultContent = Content.createDefaultSnapshotContent();
+        newDefaultSnapshot.content.put(Integer.parseInt(newDefaultContent.getUuid()), newDefaultContent);
 
         return newDefaultSnapshot;
     }
 
     public static SnapShot createDefaultDashboardSnapshot() {
         SnapShot newDefaultSnapshot = new SnapShot();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultSnapshot.uuid = i + "";
 
-        newDefaultSnapshot.status = "running";
-        newDefaultSnapshot.today = Today.createDefaultToday();
-        newDefaultSnapshot.uptime = UpTime.createDefaultUpTime();
-        newDefaultSnapshot.yesterday = Yesterday.createDefaultYesterday();
+        Content newDefaultContent = Content.createDefaultSnapshotContent();
+        newDefaultSnapshot.content.put(Integer.parseInt(newDefaultContent.getUuid()), newDefaultContent);
 
         return newDefaultSnapshot;
     }
@@ -52,68 +40,80 @@ public class SnapShot {
     }
 
     public String toJSONString() {
-        String myJSONValue = getThisJSONValue();
+        String contentJSON = getContentJSONValue();
+        String myJSONValue = getThisJSONValue(contentJSON);
 
         return NODE_NAME + ":" + myJSONValue;
     }
 
     public String toJSONValueString() {
         //without the node title - i.e. NODE_NAME + ":" + myJSONValue
-        String myJSONValue = getThisJSONValue();
+        String contentJSON = getContentJSONValue();
+        String myJSONValue = getThisJSONValue(contentJSON);
 
         return myJSONValue;
     }
 
-    private String getThisJSONValue() {
+    private String getContentJSONValue() {
+        String contentJSON = "[";
+
+        if (content != null && content.size() > 0) {
+            Collection<Content> theContent = content.values();
+            Iterator<Content> iterator = theContent.iterator();
+
+            while (iterator.hasNext()) {
+                Content aContent = iterator.next();
+                String aContentJSON = aContent.toJSONValueString();
+                contentJSON += aContentJSON;
+                if (iterator.hasNext()) {
+                    contentJSON += ", ";
+                }
+            }
+        }
+        contentJSON += "]";
+
+        return contentJSON;
+    }
+
+    private String getThisJSONValue(String theContentJSONValue) {
         String myJSONValue =
                 "{" +
                         "\"uuid\":\"" + uuid + "\", " +
-                        "\"status\":\"" + status + "\", " +
-                        "\"today\":\"" + today.toJSONValueString() + "\", " +
-                        "\"uptime\":\"" + uptime.toJSONValueString() + "\", " +
-                        "\"yesterday\":\"" + yesterday.toJSONValueString() +
+                        "\"content\":" + theContentJSONValue + ", " +
                         "}";
 
         return myJSONValue;
     }
 
-    public String getUuid() {
-        return uuid;
+    public Hashtable<Integer, Content> getContent() {
+        return content;
     }
 
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
+    public void setContent(Hashtable<Integer, Content> content1) {
+        this.content = content1;
     }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String source1) {
-        this.status = source1;
-    }
-
-    public Today getToday() {
-        return today;
-    }
-
-    public void setToday(Today today1) {
-        this.today = today1;
-    }
-
-    public UpTime getUptime() {
-        return uptime;
-    }
-
-    public void setUptime(UpTime uptime1) {
-        this.uptime = uptime1;
-    }
-
-    public Yesterday getYesterday() {
-        return yesterday;
-    }
-
-    public void setYesterday(Yesterday yesterday1) {
-        this.yesterday = yesterday1;
-    }
+//
+//    public Today getToday() {
+//        return today;
+//    }
+//
+//    public void setToday(Today today1) {
+//        this.today = today1;
+//    }
+//
+//    public UpTime getUptime() {
+//        return uptime;
+//    }
+//
+//    public void setUptime(UpTime uptime1) {
+//        this.uptime = uptime1;
+//    }
+//
+//    public Yesterday getYesterday() {
+//        return yesterday;
+//    }
+//
+//    public void setYesterday(Yesterday yesterday1) {
+//        this.yesterday = yesterday1;
+//    }
 }

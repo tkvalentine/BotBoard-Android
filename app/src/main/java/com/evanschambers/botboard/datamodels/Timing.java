@@ -3,16 +3,18 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Timing {
+public class Timing extends BaseDataModel {
     private static final String TAG = Timing.class.getSimpleName();
     private static final String NODE_NAME = "timing";
     private Long slideTime;
     private Long transitionTime;
 
     public Timing() {
+        super();
     }
 
     public Timing(Long transitionTime1, Long slideTime1) {
+        super();
         transitionTime = transitionTime1;
         slideTime = slideTime1;
     }
@@ -52,11 +54,11 @@ public class Timing {
         return myJSONValue;
     }
 
-    public long getSlideTime() {
+    public Long getSlideTime() {
         return slideTime;
     }
 
-    public void setSlideTime(long slideTime1) {
+    public void setSlideTime(Long slideTime1) {
         this.slideTime = slideTime1;
     }
 

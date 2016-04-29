@@ -3,15 +3,13 @@ package com.evanschambers.botboard.datamodels;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.UUID;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Slide {
+public class Slide extends BaseDataModel {
     private static final String TAG = Slide.class.getSimpleName();
     private static final String NODE_NAME = "slide";
-    private String uuid;
 
     private String title;
     private String type;
@@ -23,18 +21,17 @@ public class Slide {
     private String logo;
 
     public Slide() {
+        super();
     }
 
     public Slide(boolean showFooter1, String type1) {
+        super();
         showFooter = showFooter1;
         type = type1;
     }
 
     public static Slide createDefaultPictureSlide() {
         Slide newDefaultSlide = new Slide();
-        int i = (int)(UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultSlide.uuid = i + "";
 
         newDefaultSlide.title = "Picture Slide";
         newDefaultSlide.type = "picture";
@@ -50,9 +47,6 @@ public class Slide {
 
     public static Slide createDefaultDashboardSlide() {
         Slide newDefaultSlide = new Slide();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultSlide.uuid = i + "";
 
         newDefaultSlide.title = "Dashboard Slide";
         newDefaultSlide.type = "dashboard";
@@ -122,14 +116,6 @@ public class Slide {
                 "}";
 
         return myJSONValue;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
     }
 
     public String getTitle() {

@@ -3,16 +3,18 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Logo {
+public class Logo extends BaseDataModel {
     private static final String TAG = Logo.class.getSimpleName();
     private static final String NODE_NAME = "logo";
     private String url;
     private Dimensions dimensions;
 
     public Logo() {
+        super();
     }
 
     public Logo(Dimensions dimensions1, String url1) {
+        super();
         dimensions = dimensions1;
         url = url1;
     }

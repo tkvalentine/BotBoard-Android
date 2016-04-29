@@ -19,6 +19,7 @@ import com.evanschambers.botboard.datamodels.BotBoardFirebaseRecord;
 import com.evanschambers.botboard.datamodels.Deck;
 import com.evanschambers.botboard.datamodels.Slide;
 import com.evanschambers.botboard.subcomponents.DeckGridViewAdapter;
+import com.evanschambers.botboard.subcomponents.SlideListItemEditActionOnClickListener;
 import com.evanschambers.botboard.subcomponents.SlideListViewAdapter;
 
 import java.util.Hashtable;
@@ -51,17 +52,27 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
     public static GridView mDecksBrowserGridview;
     public static ListView mSlidesBrowserListview;
 
+    //subpanels for data hierarchy, these are controlled by the ViewAnimator below
     public static View mDecksSubcontentContainer;
+    public static View mDecksDetailSubcontentContainer;
     public static View mSlidesSubcontentContainer;
     public static View mSlidesDetailSubcontentContainer;
+    public static View mSlidesDetailSubcontentContentContainer;
 
     public static ViewAnimator mViewAnimator;
     public static boolean isActivityInCreation = true;
+    public static boolean isActivityIntializing = true;
 
     public static int DECK_GRID = 0;
-    public static int SLIDE_LIST = 1;
-    public static int SLIDE_DETAIL = 2;
-    public static int SLIDE_DETAIL_CONTENT = 3;
+    public static int DECK_DETAIL = 1;
+    public static int SLIDE_LIST = 2;
+    public static int SLIDE_DETAIL = 3;
+    public static int SLIDE_DETAIL_CONTENT = 4;
+    public static int SLIDE_DETAIL_CONTENT_LAYOUT = 5;
+    public static int SLIDE_DETAIL_CONTENT_SNAPSHOT = 6;
+
+    public BotBoardMain() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +102,11 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
 
         //deck panel buttons
         mCreateDeckImageButton = (ImageButton) findViewById(R.id.mainScreenCreateDeckButton);
-        mCreateDeckImageButton.setOnClickListener(this);
+        mCreateDeckImageButton.setOnClickListener(new DeckGridViewAdapter.DeckGridItemCreateOnClickListener());
 
         //slide panel buttons
         mCreateSlideImageButton = (ImageButton) findViewById(R.id.mainScreenCreateSlideButton);
-        mCreateSlideImageButton.setOnClickListener(this);
+        mCreateSlideImageButton.setOnClickListener(new SlideListItemEditActionOnClickListener());
 
         mPlaySlideImageButton = (ImageButton) findViewById(R.id.mainScreenPlaySlideButton);
         mPlaySlideImageButton.setOnClickListener(this);
@@ -113,15 +124,14 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
 
         //get the slides later when a deck is selected for view/edit
         //by virtue of logging in we either have a default user record or retrieved record data
-        //view subcontent
         mSlidesBrowserListview = (ListView) findViewById(R.id.mainScreenSlidesListView);
         mSlidesBrowserListview.setAdapter(new SlideListViewAdapter(this, new Slide[]{}));
 
         mDecksSubcontentContainer = (View) findViewById(R.id.mainScreenDecksSubcontentContainer);//decksSubcontent);
+        mDecksDetailSubcontentContainer = (View) findViewById(R.id.mainScreenDeckDetailSubcontentContainer);//decksDetailSubcontent);
         mSlidesSubcontentContainer = (View) findViewById(R.id.mainScreenSlidesSubcontentContainer);//slidesSubcontent);
         mSlidesDetailSubcontentContainer = (View) findViewById(R.id.mainScreenSlidesDetailSubcontentContainer);//slidesDetailSubcontent);
-
-//        ScrollView mSlidesDetailScrollView = (ScrollView) findViewById(R.id.mainScreenDetailSlideDataScrollView);//slidesDetailSubcontent);
+        mSlidesDetailSubcontentContentContainer = (View) findViewById(R.id.mainScreenSlidesDetailContentSubcontentContainer);//slidesDetailSubcontentContent);
 
         mViewAnimator = (ViewAnimator) findViewById(R.id.mainSubcontentScreenViewAnimator);
 
@@ -235,29 +245,9 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
                 Log.i(TAG, ">>>onClick() : mainScreenPlayInfoButton");
                 break;
             //deck panel buttons
-            case R.id.mainScreenCreateDeckButton:
-                //put in delayed Runnable so button will flash before action
-                r = new Runnable() {
-                    public void run() {
-                        createNewDeck();
-                    }
-                };
-                handler.postDelayed(r, 250);
-
-                Log.i(TAG, ">>>onClick() : mainScreenCreateDeckButton");
-                break;
+            //case R.id.mainScreenCreateDeckButton:     //HANDLED WITH CUSTOM ONCLICKLISTENER
             //slide panel buttons
-            case R.id.mainScreenCreateSlideButton:
-                //put in delayed Runnable so button will flash before action
-                r = new Runnable() {
-                    public void run() {
-                        createNewSlide();
-                    }
-                };
-                handler.postDelayed(r, 250);
-
-                Log.i(TAG, ">>>onClick() : mainScreenCreateSlideButton");
-                break;
+            //case R.id.mainScreenCreateSlideButton:     //HANDLED WITH CUSTOM ONCLICKLISTENER
             case R.id.mainScreenPlaySlideButton:
                 //put in delayed Runnable so button will flash before action
                 r = new Runnable() {
@@ -285,43 +275,6 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
             default:
                 break;
         }
-    }
-
-    private void createNewDeck() {
-        Log.i(TAG, ">>>createNewDeck() : ENTER");
-
-        Hashtable<Integer, Deck> decks = BotBoardApplication.userRecord.getDecks();
-        Deck newDeck = Deck.createDefaultDeck();
-        newDeck.setTitle("Your New Deck" + " (" + (decks.size() + 1) + ")");
-        decks.put(Integer.parseInt(newDeck.getUuid()), newDeck);
-
-        BotBoardApplication.userRecord.setDecks(decks);
-
-        ((DeckGridViewAdapter) mDecksBrowserGridview.getAdapter()).setDeckArray(decks);
-
-        BotBoardApplication.userRecordIsDirty = true;
-    }
-
-    private void createNewSlide() {
-        Log.i(TAG, ">>>createNewSlide() : ENTER");
-
-        Deck[] decks = BotBoardFirebaseRecord.convertDecksHashtableToDeckArray(BotBoardApplication.userRecord.getDecks());
-        int selectedDeckIndex = ((DeckGridViewAdapter) mDecksBrowserGridview.getAdapter()).getLastClickedItemIndex();
-        Deck deck = decks[selectedDeckIndex];
-
-        Hashtable<Integer, Slide> slidesHashtable = BotBoardFirebaseRecord.getSlidesHashtableForADeck(selectedDeckIndex, deck);
-
-        Slide newSlide = Slide.createDefaultPictureSlide();
-        newSlide.setTitle("Your New Slide" + " (" + (slidesHashtable.size() + 1) + ")");
-        slidesHashtable.put(Integer.parseInt(newSlide.getUuid()), newSlide);
-
-        //this will update BotBoardApplication.userRecord
-        deck.setSlides(slidesHashtable);
-
-        Slide[] slides = BotBoardFirebaseRecord.getSlidesArrayForADeck(selectedDeckIndex, deck);
-        ((SlideListViewAdapter) mSlidesBrowserListview.getAdapter()).setSlideArray(slides);
-
-        BotBoardApplication.userRecordIsDirty = true;
     }
 
     private void showUserDetail() {
@@ -368,6 +321,5 @@ public class BotBoardMain extends Activity implements View.OnClickListener {
 
         //go back to slide list view
         mViewAnimator.setDisplayedChild(SLIDE_LIST);
-
     }
 }

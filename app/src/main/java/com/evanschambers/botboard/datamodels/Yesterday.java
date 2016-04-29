@@ -3,13 +3,14 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Yesterday {
+public class Yesterday extends BaseDataModel {
     private static final String TAG = Yesterday.class.getSimpleName();
     private static final String NODE_NAME = "yesterday";
     private Long errorCount;
     private Long ingestCount;
 
     public Yesterday() {
+        super();
     }
 
     public Yesterday(Long ingestCount1, Long errorCount1) {
@@ -45,9 +46,9 @@ public class Yesterday {
     private String getThisJSONValue() {
         String myJSONValue =
                 "{" +
-                        "\"ingestCount\":" + ingestCount + ", " +
-                        "\"errorCount:" + errorCount +
-                        "}";
+                "\"ingestCount\":" + ingestCount + ", " +
+                "\"errorCount\":" + errorCount +
+                "}";
 
         return myJSONValue;
     }

@@ -3,26 +3,22 @@ package com.evanschambers.botboard.datamodels;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.UUID;
 
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Row {
+public class Row extends BaseDataModel {
     private static final String TAG = Row.class.getSimpleName();
     private static final String NODE_NAME = "row";
-    private String uuid;
 
     private Hashtable<Integer, Widget> widgets = new Hashtable<Integer, Widget>();
 
     public Row() {
+        super();
     }
 
     public static Row createDefaultRow() {
         Row newDefaultRow = new Row();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultRow.uuid = i + "";
 
         Widget newDefaultWidget = Widget.createDefaultWidget();
         newDefaultRow.widgets.put(Integer.parseInt(newDefaultWidget.getUuid()), newDefaultWidget);
@@ -32,9 +28,6 @@ public class Row {
 
     public static Row createDefaultDashboardRow() {
         Row newDefaultRow = new Row();
-        int i = (int) (UUID.randomUUID().getLeastSignificantBits());
-        i = i < 0 ? i * -1 : i;
-        newDefaultRow.uuid = i + "";
 
         Widget newDefaultWidget = Widget.createDefaultDashboardWidget();
         newDefaultRow.widgets.put(Integer.parseInt(newDefaultWidget.getUuid()), newDefaultWidget);
@@ -91,14 +84,6 @@ public class Row {
                         "}";
 
         return myJSONValue;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid1) {
-        this.uuid = uuid1;
     }
 
     public Hashtable<Integer, Widget> getWidgets() {

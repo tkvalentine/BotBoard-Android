@@ -3,7 +3,7 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Today {
+public class Today extends BaseDataModel {
     private static final String TAG = Today.class.getSimpleName();
     private static final String NODE_NAME = "today";
     private Long errorCount;
@@ -11,9 +11,11 @@ public class Today {
     private Long ingestRate;
 
     public Today() {
+        super();
     }
 
     public Today(Long ingestCount1, Long errorCount1, Long ingestRate1) {
+        super();
         ingestCount = ingestCount1;
         errorCount = errorCount1;
         ingestRate = ingestRate1;
@@ -48,10 +50,10 @@ public class Today {
     private String getThisJSONValue() {
         String myJSONValue =
                 "{" +
-                        "\"ingestRate\":" + ingestRate + ", " +
-                        "\"ingestCount\":" + ingestCount + ", " +
-                        "\"errorCount:" + errorCount +
-                        "}";
+                "\"ingestRate\":" + ingestRate + ", " +
+                "\"ingestCount\":" + ingestCount + ", " +
+                "\"errorCount\":" + errorCount +
+                "}";
 
         return myJSONValue;
     }

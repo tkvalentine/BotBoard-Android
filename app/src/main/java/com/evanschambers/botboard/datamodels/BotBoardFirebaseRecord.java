@@ -146,6 +146,21 @@ public class BotBoardFirebaseRecord {
         return deckArray;
     }
 
+    public static Content[] convertSlidesContentHashtableToSlideContentArray(Hashtable<Integer, Content> contents) {
+        Content[] contentArray = null;
+        if (contents == null || contents.size() <= 0) {
+            contentArray = new Content[]{};
+        } else {
+            Collection<Content> contentHashtableValues = contents.values();
+            Object[] contentObjectArray = contentHashtableValues.toArray();
+            contentArray = new Content[contentObjectArray.length];
+            for(int i = 0; i < contentObjectArray.length; i++){
+                contentArray[i] = (Content)contentObjectArray[i];
+            }
+        }
+        return contentArray;
+    }
+
     public static Slide[] convertSlidesHashtableToSlideArray(Hashtable<Integer, Slide> slides) {
         Slide[] slideArray = null;
         if (slides == null || slides.size() <= 0) {
@@ -174,7 +189,6 @@ public class BotBoardFirebaseRecord {
         slides = deck.getSlides();
         return slides;
     }
-
 
     public static Content[] convertContentsHashtableToContentsArray(Hashtable<Integer, Content> contents) {
         Content[] contentArray = null;

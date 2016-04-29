@@ -17,7 +17,7 @@ public class BotBoardApplication extends Application {
     public static String userToken;
     public static android.net.Uri userPhotoURL;
     public static String userAuthProvider;
-    public static String appSecret = "BBwlPFTEMISGXNTvQz5nheil1SC3PgyPqIWxEvIV";
+    //public static String appSecret = "BBwlPFTEMISGXNTvQz5nheil1SC3PgyPqIWxEvIV";
 
     public static boolean isInitialFirebaseAccess = true;
     public static BotBoardFirebaseRecord userRecord;

@@ -3,16 +3,18 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Transitions {
+public class Transitions extends BaseDataModel {
     private static final String TAG = BotBoardFirebaseRecord.class.getSimpleName();
     private static final String NODE_NAME = "transitions";
     private String entry;
     private String exit;
 
     public Transitions() {
+        super();
     }
 
     public Transitions(String exit1, String entry1) {
+        super();
         exit = exit1;
         entry = entry1;
     }

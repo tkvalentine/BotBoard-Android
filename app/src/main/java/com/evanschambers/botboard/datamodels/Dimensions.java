@@ -3,16 +3,18 @@ package com.evanschambers.botboard.datamodels;
 /**
  * Created by timvalentine on 3/17/16.
  */
-public class Dimensions {
+public class Dimensions extends BaseDataModel {
     private static final String TAG = Dimensions.class.getSimpleName();
     private static final String NODE_NAME = "dimensions";
     private Long height = 128l;
     private Long width = 128l;
 
     public Dimensions() {
+        super();
     }
 
     public Dimensions(Long width1, Long height1) {
+        super();
         width = width1;
         height = height1;
     }
